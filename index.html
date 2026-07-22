@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOMÊ STUDIO — Impressão 3D e peças personalizadas | Bento Gonçalves, RS</title>
+<meta name="description" content="Luminárias, vasos, chaveiros e itens pet impressos em 3D e personalizados com nome ou logo. Estúdio próprio em Bento Gonçalves, RS. Nota fiscal emitida.">
+<meta name="theme-color" content="#FBF8F3">
+<link rel="canonical" href="https://nomestudio.com.br/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nomestudio.com.br/">
+<meta property="og:site_name" content="NOMÊ STUDIO">
+<meta property="og:title" content="NOMÊ STUDIO — Impressão 3D e peças personalizadas">
+<meta property="og:description" content="Decoração e presentes impressos peça a peça, com o nome de quem vai ganhar.">
+<meta property="og:image" content="https://nomestudio.com.br/og.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   NOMÊ STUDIO — tokens da marca
+   Tinta #2B2622 · Terracota #C75D3C · Areia #FBF8F3 / #E9DECF
+   Sálvia #9BAE96 (reservada à linha pet)
+   ============================================================ */
+:root{
+  --tinta:#2B2622;
+  --tinta-70:rgba(43,38,34,.70);
+  --tinta-45:rgba(43,38,34,.45);
+  --terracota:#C75D3C;
+  --terracota-esc:#A94A2D;
+  --areia:#FBF8F3;
+  --areia-2:#E9DECF;
+  --areia-3:#F3EDE3;
+  --salvia:#9BAE96;
+  --salvia-esc:#7C9077;
+
+  --disp:'Outfit',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  --wrap:1180px;
+  --r:14px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--areia);
+  color:var(--tinta);
+  font-family:var(--disp);
+  font-weight:400;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sec{padding:clamp(72px,9.5vw,124px) 0}
+
+/* --- textura de camadas: assinatura do processo FDM --- */
+.camadas{
+  background-image:repeating-linear-gradient(
+    to bottom,
+    rgba(43,38,34,.055) 0 1px,
+    transparent 1px 5px
+  );
+}
+
+/* --- rótulos técnicos --- */
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11.5px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--terracota);
+  margin:0 0 18px;
+}
+.eyebrow.neutro{color:var(--tinta-45)}
+
+h1,h2,h3{margin:0;letter-spacing:-.022em;line-height:1.08;font-weight:700}
+h2{font-size:clamp(28px,4vw,44px)}
+h3{font-size:20px;line-height:1.22;letter-spacing:-.015em}
+p{margin:0}
+.lead{font-size:clamp(17px,1.7vw,19.5px);color:var(--tinta-70);max-width:56ch}
+
+/* ============================ HEADER ============================ */
+.topo{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,248,243,.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--areia-2);
+}
+.topo-in{display:flex;align-items:center;gap:28px;height:70px}
+.marca{display:flex;flex-direction:column;text-decoration:none;line-height:1;flex:0 0 auto}
+.marca .nome{font-size:22px;font-weight:800;letter-spacing:-.01em}
+.marca .nome i{font-style:normal;color:var(--terracota)}
+.marca .desc{
+  font-family:var(--mono);font-size:9.5px;font-weight:500;
+  letter-spacing:.34em;color:var(--tinta-45);margin-top:5px;
+}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{
+  text-decoration:none;font-size:15px;font-weight:500;color:var(--tinta-70);
+  padding:6px 0;border-bottom:1.5px solid transparent;transition:.18s;
+}
+.nav a:hover{color:var(--tinta);border-bottom-color:var(--terracota)}
+
+/* ============================ BOTÕES ============================ */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--disp);font-size:15.5px;font-weight:600;
+  padding:13px 24px;border-radius:100px;border:1.5px solid transparent;
+  text-decoration:none;cursor:pointer;transition:.2s;white-space:nowrap;
+}
+.btn-zap{background:var(--terracota);color:var(--areia)}
+.btn-zap:hover{background:var(--terracota-esc);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--tinta);color:var(--tinta);background:transparent}
+.btn-ghost:hover{background:var(--tinta);color:var(--areia)}
+.btn-mini{padding:10px 18px;font-size:14.5px}
+.btn svg{width:17px;height:17px;flex:0 0 auto}
+
+/* ============================ HERO ============================ */
+.hero{padding:clamp(52px,7vw,92px) 0 clamp(60px,8vw,104px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.6vw,66px);font-weight:800;max-width:14ch}
+.hero .lead{margin-top:24px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+
+/* palco da impressão */
+.palco{
+  position:relative;
+  background:var(--areia-3);
+  border:1px solid var(--areia-2);
+  border-radius:var(--r);
+  padding:26px;
+  aspect-ratio:1/1.06;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.palco svg{width:100%;height:100%}
+.palco-tag{
+  position:absolute;top:18px;left:20px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--tinta-45);
+}
+.mesa{stroke:var(--tinta);stroke-width:1;opacity:.28}
+.camada{fill:var(--tinta);opacity:0}
+.bico{fill:var(--terracota)}
+
+@media (prefers-reduced-motion:no-preference){
+  .camada{animation:sobe .5s ease-out forwards}
+  .bico{animation:varre 1.9s cubic-bezier(.4,0,.2,1) forwards}
+}
+@media (prefers-reduced-motion:reduce){
+  .camada{opacity:.92}
+  .bico{opacity:0}
+}
+@keyframes sobe{from{opacity:0;transform:translateY(7px)}to{opacity:.92;transform:translateY(0)}}
+@keyframes varre{0%{opacity:0}8%{opacity:1}88%{opacity:1}100%{opacity:0}}
+
+/* ============================ FAIXA DE GARANTIAS ============================ */
+.faixa{border-top:1px solid var(--areia-2);border-bottom:1px solid var(--areia-2);background:var(--areia-3)}
+.faixa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--areia-2)}
+.faixa-item{background:var(--areia-3);padding:30px 26px}
+.faixa-item .rot{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--terracota);display:block;margin-bottom:9px;
+}
+.faixa-item p{font-size:15.5px;color:var(--tinta-70);line-height:1.55}
+
+/* ============================ LINHAS ============================ */
+.cab{max-width:62ch;margin-bottom:52px}
+.cab .lead{margin-top:18px}
+
+.linhas{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{
+  background:#fff;
+  border:1px solid var(--areia-2);
+  border-radius:var(--r);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:.22s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(43,38,34,.075)}
+.card-fig{
+  background:var(--areia-3);
+  border-bottom:1px solid var(--areia-2);
+  aspect-ratio:16/10;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.card-fig svg{height:64%;opacity:.5}
+.card-fig .selo{
+  position:absolute;top:14px;left:16px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--areia);border:1px solid var(--areia-2);
+  padding:4px 9px;border-radius:100px;color:var(--tinta-45);
+}
+.card-corpo{padding:26px 26px 24px;display:flex;flex-direction:column;flex:1}
+.card-corpo h3{margin-bottom:10px}
+.card-corpo h3 i{font-style:normal;color:var(--terracota)}
+.card-corpo > p{font-size:15.5px;color:var(--tinta-70);line-height:1.58}
+
+/* ficha técnica — a estrutura reflete o produto: são objetos com medida */
+.ficha{border-top:1px solid var(--areia-2);margin-top:22px;padding-top:16px}
+.ficha div{
+  display:flex;justify-content:space-between;gap:16px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.02em;
+  padding:5px 0;color:var(--tinta);
+}
+.ficha div span:first-child{color:var(--tinta-45);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px}
+.card-link{
+  margin-top:22px;text-decoration:none;font-weight:600;font-size:15px;color:var(--terracota);
+  display:inline-flex;align-items:center;gap:7px;align-self:flex-start;
+}
+.card-link:hover{gap:11px}
+.card-link span{transition:.2s}
+
+/* variação sálvia — só a linha pet */
+.card.pet .card-fig{background:var(--salvia);border-bottom-color:var(--salvia-esc)}
+.card.pet .card-fig svg{opacity:.62;color:#fff}
+.card.pet .card-fig .selo{background:var(--salvia-esc);border-color:var(--salvia-esc);color:#fff}
+.card.pet .card-corpo h3 i{color:var(--salvia-esc)}
+.card.pet .card-link{color:var(--salvia-esc)}
+
+/* ============================ SOB MEDIDA ============================ */
+.medida{background:var(--tinta);color:var(--areia)}
+.medida .eyebrow{color:var(--salvia)}
+.medida-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.medida h2{color:var(--areia)}
+.medida p.lead{color:rgba(251,248,243,.72)}
+.medida .btn-zap{margin-top:30px}
+.passos{list-style:none;margin:0;padding:0;counter-reset:p}
+.passos li{
+  counter-increment:p;
+  padding:18px 0 18px 52px;position:relative;
+  border-bottom:1px solid rgba(251,248,243,.14);
+  font-size:16px;color:rgba(251,248,243,.82);
+}
+.passos li:last-child{border-bottom:none}
+.passos li::before{
+  content:counter(p,decimal-leading-zero);
+  position:absolute;left:0;top:19px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--terracota);
+}
+.passos li b{color:var(--areia);font-weight:600}
+
+/* ============================ ONDE COMPRAR ============================ */
+.lojas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.loja{
+  background:#fff;border:1px solid var(--areia-2);border-radius:var(--r);
+  padding:24px 22px;text-decoration:none;transition:.2s;
+  display:flex;flex-direction:column;gap:7px;
+}
+.loja:hover{border-color:var(--tinta);transform:translateY(-3px)}
+.loja .n{font-weight:600;font-size:17px}
+.loja .u{font-family:var(--mono);font-size:11.5px;color:var(--tinta-45);letter-spacing:.06em}
+
+/* ============================ CONTATO ============================ */
+.contato{background:var(--areia-3);border-top:1px solid var(--areia-2)}
+.contato-in{text-align:center;max-width:60ch;margin:0 auto}
+.contato .lead{margin:20px auto 32px}
+.contato-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ============================ RODAPÉ ============================ */
+.rodape{background:var(--tinta);color:rgba(251,248,243,.68);padding:56px 0 40px;font-size:14.5px}
+.rodape a{text-decoration:none;color:rgba(251,248,243,.68);transition:.18s}
+.rodape a:hover{color:var(--areia)}
+.rodape-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.rodape .marca .nome{color:var(--areia)}
+.rodape .marca .desc{color:rgba(251,248,243,.42)}
+.rodape h4{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(251,248,243,.42);margin:0 0 14px;font-weight:500;
+}
+.rodape ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.rodape .base{
+  border-top:1px solid rgba(251,248,243,.14);padding-top:24px;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:rgba(251,248,243,.42);
+}
+
+/* ============================ BOTÃO FLUTUANTE ============================ */
+.flutua{
+  position:fixed;right:20px;bottom:20px;z-index:60;
+  box-shadow:0 8px 26px rgba(43,38,34,.24);
+}
+
+/* ============================ REVELAÇÃO NO SCROLL ============================ */
+.rev{opacity:0;transform:translateY(16px)}
+.rev.on{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+@media (prefers-reduced-motion:reduce){
+  .rev{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ============================ FOCO VISÍVEL ============================ */
+a:focus-visible,button:focus-visible{
+  outline:2.5px solid var(--terracota);outline-offset:3px;border-radius:4px;
+}
+
+/* ============================ RESPONSIVO ============================ */
+@media (max-width:940px){
+  .hero-grid,.medida-grid{grid-template-columns:1fr;gap:44px}
+  .palco{max-width:420px;margin:0 auto;aspect-ratio:1/1}
+  .lojas{grid-template-columns:repeat(2,1fr)}
+  .faixa-grid{grid-template-columns:1fr}
+  .rodape-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .nav{display:none}
+  .topo-in{justify-content:space-between}
+  .linhas{grid-template-columns:1fr}
+  .hero h1{max-width:none}
+}
+@media (max-width:480px){
+  body{font-size:16px}
+  .lojas,.rodape-grid{grid-template-columns:1fr}
+  .flutua{right:14px;bottom:14px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="topo">
+  <div class="wrap topo-in">
+    <a href="#topo" class="marca" id="topo">
+      <span class="nome">NOM<i>Ê</i></span>
+      <span class="desc">STUDIO</span>
+    </a>
+    <nav class="nav">
+      <a href="#linhas">Linhas</a>
+      <a href="#sob-medida">Sob medida</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-zap btn-mini js-zap" href="#">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero camadas">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Estúdio de impressão 3D · Bento Gonçalves, RS</p>
+      <h1>Decoração e presentes impressos peça a peça.</h1>
+      <p class="lead">Desenhamos e imprimimos luminárias, vasos, chaveiros e itens pet aqui no estúdio. Você leva do jeito que está — ou com o nome de quem vai ganhar gravado em relevo.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-zap js-zap" href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#linhas">Ver as linhas</a>
+      </div>
+    </div>
+
+    <div class="palco" aria-hidden="true">
+      <span class="palco-tag">Camada 56 / 56</span>
+      <svg viewBox="0 0 300 320" id="impressao" xmlns="http://www.w3.org/2000/svg">
+        <line class="mesa" x1="34" y1="292" x2="266" y2="292"></line>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAIXA ===================== -->
+<section class="faixa">
+  <div class="wrap">
+    <div class="faixa-grid">
+      <div class="faixa-item">
+        <span class="rot">Feito aqui</span>
+        <p>Modelagem, impressão e acabamento no nosso estúdio, sem intermediário.</p>
+      </div>
+      <div class="faixa-item">
+        <span class="rot">Com nota fiscal</span>
+        <p>Emitida por MAC ADM LTDA — atende pedido corporativo e compra de empresa.</p>
+      </div>
+      <div class="faixa-item">
+        <span class="rot">Personalizável</span>
+        <p>Nome, logo e combinação de cores definidos antes de a peça começar a imprimir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LINHAS ===================== -->
+<section class="sec" id="linhas">
+  <div class="wrap">
+    <div class="cab rev">
+      <p class="eyebrow">As linhas</p>
+      <h2>Quatro famílias de peças</h2>
+      <p class="lead">Cada linha nasce de um desenho próprio e é impressa sob demanda. Se quiser outra cor ou o nome aplicado, é só pedir antes da produção.</p>
+    </div>
+
+    <div class="linhas">
+
+      <!-- VOLUTA -->
+      <article class="card rev">
+        <div class="card-fig">
+          <span class="selo">Linha assinatura</span>
+          <svg viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+            <path d="M60 8c-16 10-26 24-26 42 0 20 14 30 14 48 0 16-10 26-22 34"/>
+            <path d="M60 8c16 10 26 24 26 42 0 20-14 30-14 48 0 16 10 26 22 34"/>
+            <path d="M34 50c17 8 35 8 52 0M40 98c13 6 27 6 40 0"/>
+            <line x1="18" y1="152" x2="102" y2="152"/>
+          </svg>
+        </div>
+        <div class="card-corpo">
+          <h3>Linha Voluta <i>·</i> luminária e vaso</h3>
+          <p>Uma torção contínua que sobe pela peça inteira, do pé até a borda. A luminária funciona com LED de baixo consumo; o vaso repete o mesmo desenho e fecha o par.</p>
+          <div class="ficha">
+            <div><span>Altura</span><span>25 cm</span></div>
+            <div><span>Material</span><span>PLA</span></div>
+            <div><span>Formatos</span><span>Luminária, vaso ou dupla</span></div>
+          </div>
+          <a class="card-link js-zap" href="#">Pedir a Voluta <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- ORE E CONFIE -->
+      <article class="card rev">
+        <div class="card-fig">
+          <span class="selo">Kit fechado</span>
+          <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+            <rect x="8" y="14" width="58" height="44" rx="4"/>
+            <path d="M20 30h34M20 40h24"/>
+            <path d="M80 30h34l-5 30H85z"/>
+            <path d="M78 26h40"/>
+            <ellipse cx="70" cy="94" rx="54" ry="14"/>
+            <path d="M16 94c0 6 24 10 54 10s54-4 54-10"/>
+          </svg>
+        </div>
+        <div class="card-corpo">
+          <h3>ORE e confie <i>·</i> 3 peças</h3>
+          <p>Placa com a frase em relevo, cachepô e bandeja oval — desenhados pra ficarem juntos num canto da casa. Impressos em cores combinadas na mesma peça.</p>
+          <div class="ficha">
+            <div><span>Composição</span><span>Placa, cachepô e bandeja</span></div>
+            <div><span>Impressão</span><span>Multicolor</span></div>
+            <div><span>Venda</span><span>Kit completo</span></div>
+          </div>
+          <a class="card-link js-zap" href="#">Pedir o kit <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- CHAVEIROS -->
+      <article class="card rev">
+        <div class="card-fig">
+          <span class="selo">Lote e corporativo</span>
+          <svg viewBox="0 0 150 100" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+            <circle cx="26" cy="50" r="12"/>
+            <rect x="42" y="30" width="86" height="40" rx="12"/>
+            <path d="M56 50h22M86 50h10"/>
+            <circle cx="112" cy="50" r="9"/>
+            <path d="M112 41v18M103 50h18"/>
+          </svg>
+        </div>
+        <div class="card-corpo">
+          <h3>Chaveiros personalizados <i>·</i> nome e logo</h3>
+          <p>Nome em relevo e o logo da empresa aplicado na mesma peça. Feitos em lote pra equipe, evento, escola ou brinde de cliente — com argola inclusa.</p>
+          <div class="ficha">
+            <div><span>Lote mínimo</span><span>50 unidades</span></div>
+            <div><span>Personalização</span><span>Nome + logo</span></div>
+            <div><span>Inclui</span><span>Argola metálica</span></div>
+          </div>
+          <a class="card-link js-zap" href="#">Pedir orçamento <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- PET -->
+      <article class="card pet rev">
+        <div class="card-fig">
+          <span class="selo">Linha pet</span>
+          <svg viewBox="0 0 140 110" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+            <path d="M22 58h96l-9 34H31z"/>
+            <ellipse cx="70" cy="58" rx="48" ry="12"/>
+            <circle cx="52" cy="28" r="7"/><circle cx="70" cy="22" r="7"/><circle cx="88" cy="28" r="7"/>
+            <path d="M58 42c0-7 5-12 12-12s12 5 12 12"/>
+          </svg>
+        </div>
+        <div class="card-corpo">
+          <h3>Linha pet <i>·</i> com o nome do bicho</h3>
+          <p>Comedouros e potes com o nome do pet aplicado na frente. Cores da linha em tom sálvia, pensadas pra combinar com o canto de comida sem destoar da casa.</p>
+          <div class="ficha">
+            <div><span>Personalização</span><span>Nome do pet</span></div>
+            <div><span>Cor da linha</span><span>Sálvia</span></div>
+            <div><span>Produção</span><span>Sob encomenda</span></div>
+          </div>
+          <a class="card-link js-zap" href="#">Personalizar <span>→</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOB MEDIDA ===================== -->
+<section class="sec medida" id="sob-medida">
+  <div class="wrap medida-grid">
+    <div class="rev">
+      <p class="eyebrow">Sob medida</p>
+      <h2>Sua marca virando peça física</h2>
+      <p class="lead">Mande o logo e a quantidade. A gente transforma o arquivo em modelo 3D, imprime uma amostra pra você aprovar e só depois produz o lote. Nota fiscal emitida por MAC ADM LTDA.</p>
+      <a class="btn btn-zap js-zap" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+        Enviar meu logo
+      </a>
+    </div>
+    <ol class="passos rev">
+      <li><b>Você manda o logo</b> em qualquer formato — a gente vetoriza se precisar.</li>
+      <li><b>Recebe o orçamento</b> com preço por unidade nas faixas de quantidade.</li>
+      <li><b>Aprova uma amostra impressa</b> antes de o lote inteiro entrar na fila.</li>
+      <li><b>Produção e entrega</b> com prazo combinado e nota fiscal junto.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section class="sec contato" id="contato">
+  <div class="wrap contato-in rev">
+    <p class="eyebrow">Contato</p>
+    <h2>Conta o que você tem em mente</h2>
+    <p class="lead">Uma peça pronta, um presente com nome ou um lote pra empresa — a gente responde no WhatsApp no mesmo dia.</p>
+    <div class="contato-ctas">
+      <a class="btn btn-zap js-zap" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a class="btn btn-ghost js-insta" href="#" target="_blank" rel="noopener">Ver no Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape-grid">
+      <div>
+        <span class="marca">
+          <span class="nome">NOM<i>Ê</i></span>
+          <span class="desc">STUDIO</span>
+        </span>
+        <p style="margin-top:18px;max-width:34ch">Impressão 3D e peças personalizadas. Bento Gonçalves, Rio Grande do Sul.</p>
+      </div>
+      <div>
+        <h4>Linhas</h4>
+        <ul>
+          <li><a href="#linhas">Voluta</a></li>
+          <li><a href="#linhas">ORE e confie</a></li>
+          <li><a href="#linhas">Chaveiros</a></li>
+          <li><a href="#linhas">Linha pet</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a class="js-zap" href="#">WhatsApp</a></li>
+          <li><a class="js-insta" href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a class="js-tiktok" href="#" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a class="js-face" href="#" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a class="js-email" href="#">E-mail</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>NOMÊ STUDIO · MAC ADM LTDA · CNPJ 00.000.000/0001-00</span>
+      <span>Bento Gonçalves, RS</span>
+    </div>
+  </div>
+</footer>
+
+<a class="btn btn-zap flutua js-zap" href="#" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+/* ==========================================================
+   CONFIGURAÇÃO — troque só os valores abaixo
+   ========================================================== */
+const CONFIG = {
+  // ---- confirmados ----
+  whatsapp:  "5554981250170",
+  mensagem:  "Olá! Vim pelo site da NOMÊ STUDIO e quero saber mais sobre as peças.",
+  instagram: "https://www.instagram.com/nomestudiobr/",
+  tiktok:    "https://www.tiktok.com/@nomestudiobr",
+
+  // ---- a preencher ----
+  facebook:  "",   // cole a URL da Página "NOMÊ Studio"
+  email:     "",   // ex.: contato@nomestudio.com.br (precisa de serviço de e-mail)
+};
+
+/* --- aplica os links; o que estiver vazio some da página --- */
+const zap = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.mensagem);
+const set = (sel, href, blank) => document.querySelectorAll(sel).forEach(a => {
+  if (!href) { const li = a.closest("li"); (li || a).style.display = "none"; return; }
+  a.href = href;
+  if (blank) { a.target = "_blank"; a.rel = "noopener"; }
+});
+set(".js-zap", zap, true);
+set(".js-insta", CONFIG.instagram, true);
+set(".js-tiktok", CONFIG.tiktok, true);
+set(".js-face", CONFIG.facebook, true);
+set(".js-email", CONFIG.email ? "mailto:" + CONFIG.email : "", false);
+
+/* ==========================================================
+   HERO — a peça se constrói camada por camada
+   ========================================================== */
+(function () {
+  const svg = document.getElementById("impressao");
+  if (!svg) return;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const N = 56, base = 290, topo = 42, alt = (base - topo) / N;
+
+  for (let i = 0; i < N; i++) {
+    const t = i / (N - 1);
+    // perfil do vaso/luminária: pé estreito, bojo, cintura e boca aberta
+    const r = 30 + 52 * Math.sin(Math.PI * (0.16 + 0.78 * t)) - 26 * t + 22 * Math.pow(t, 3.4);
+    const twist = 5 * Math.sin(t * Math.PI * 3.2);   // sugere a torção da Voluta
+    const y = base - (i + 1) * alt;
+
+    const rect = document.createElementNS(NS, "rect");
+    rect.setAttribute("class", "camada");
+    rect.setAttribute("x", (150 + twist - r).toFixed(2));
+    rect.setAttribute("y", y.toFixed(2));
+    rect.setAttribute("width", (r * 2).toFixed(2));
+    rect.setAttribute("height", (alt - 0.9).toFixed(2));
+    rect.setAttribute("rx", "1.2");
+    rect.style.animationDelay = (i * 26) + "ms";
+    svg.appendChild(rect);
+  }
+
+  // o bico da impressora subindo à frente das camadas
+  const bico = document.createElementNS(NS, "rect");
+  bico.setAttribute("class", "bico");
+  bico.setAttribute("x", "40");
+  bico.setAttribute("width", "220");
+  bico.setAttribute("height", "1.8");
+  bico.setAttribute("y", base);
+  svg.appendChild(bico);
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const t0 = performance.now(), dur = N * 26 + 500;
+    (function anima(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      bico.setAttribute("y", (base - p * (base - topo)).toFixed(2));
+      if (p < 1) requestAnimationFrame(anima);
+    })(t0);
+  }
+})();
+
+/* ==========================================================
+   Revelação suave no scroll
+   ========================================================== */
+(function () {
+  const alvos = document.querySelectorAll(".rev");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+    alvos.forEach(el => el.classList.add("on"));
+    return;
+  }
+  const obs = new IntersectionObserver((ents) => {
+    ents.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add("on"), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+  alvos.forEach(el => obs.observe(el));
+})();
+</script>
+
+</body>
+</html>
