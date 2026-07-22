@@ -107,10 +107,14 @@ h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.2}
 .atalho:hover{border-color:var(--terracota);border-style:solid;color:var(--terracota)}
 
 /* ---------------- resultado ---------------- */
-.resultado{position:sticky;top:76px}
-.res-topo{
-  background:var(--tinta);color:var(--areia);border-radius:var(--r) var(--r) 0 0;
+.col-b{position:sticky;top:76px}
+.resumo{
+  background:var(--tinta);color:var(--areia);border-radius:var(--r);
   padding:22px 20px 18px;
+}
+.cartao{
+  background:#fff;border:1px solid var(--areia-2);border-radius:var(--r);
+  overflow:hidden;margin-top:16px;
 }
 .res-rot{
   font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
@@ -126,10 +130,7 @@ h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.2}
 /* barra de composição */
 .barra{display:flex;height:30px;overflow:hidden;background:var(--areia-2)}
 .barra div{transition:width .25s ease}
-.legenda{
-  background:#fff;border:1px solid var(--areia-2);border-top:0;
-  border-radius:0 0 var(--r) var(--r);padding:16px 20px 18px;
-}
+.legenda{padding:16px 20px 18px}
 .leg{display:flex;align-items:center;gap:9px;padding:6px 0;font-size:13.5px}
 .leg .pt{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
 .leg .n{color:var(--tinta-70)}
@@ -202,7 +203,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 /* ---------------- responsivo ---------------- */
 @media (max-width:900px){
   .duo{grid-template-columns:1fr}
-  .resultado{position:sticky;top:60px;z-index:20;order:-1}
+  .col-b{display:contents}
+  .resumo{order:-2;position:sticky;top:56px;z-index:25;box-shadow:0 6px 18px rgba(43,38,34,.12)}
+  .col-a{order:-1;margin-top:16px}
+  .detalhe{order:0}
+  .cartao{margin-top:0}
   .titulo{display:none}
 }
 @media (max-width:560px){
@@ -211,6 +216,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .linha3{grid-template-columns:1fr 1fr}
   .res-grande{font-size:30px}
   .item{padding:13px 15px}
+  .c-recebe{display:none}
+  .tab td,.tab th{font-size:12.5px}
 }
 </style>
 </head>
@@ -234,7 +241,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 <section class="painel" id="p-calc">
   <div class="duo">
 
-    <div>
+    <div class="col-a">
       <div class="bloco">
         <h3>A peça</h3>
         <div class="campo">
@@ -302,8 +309,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
       </div>
     </div>
 
-    <div class="resultado">
-      <div class="res-topo">
+    <div class="col-b">
+      <div class="resumo">
         <div class="res-rot">Preço de venda sugerido</div>
         <div class="res-grande" id="r-venda">R$ 0,00</div>
         <div class="res-par">
@@ -317,16 +324,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
           </div>
         </div>
       </div>
-      <div class="barra" id="r-barra"></div>
-      <div class="legenda" id="r-legenda"></div>
 
-      <div class="bloco" style="margin-top:16px">
-        <h3>Se vender por canal</h3>
-        <table class="tab">
-          <thead><tr><th>Canal</th><th>Você recebe</th><th>Margem</th><th>Preço ideal</th></tr></thead>
-          <tbody id="r-canais"></tbody>
-        </table>
-        <p class="dica">"Preço ideal" é quanto cobrar naquele canal pra manter a margem que você pediu, já descontada a taxa.</p>
+      <div class="detalhe">
+        <div class="cartao">
+          <div class="barra" id="r-barra"></div>
+          <div class="legenda" id="r-legenda"></div>
+        </div>
+
+        <div class="bloco" style="margin-top:16px">
+          <h3>Se vender por canal</h3>
+          <table class="tab">
+            <thead><tr><th>Canal</th><th class="c-recebe">Você recebe</th><th>Margem</th><th>Preço ideal</th></tr></thead>
+            <tbody id="r-canais"></tbody>
+          </table>
+          <p class="dica">"Preço ideal" é quanto cobrar naquele canal pra manter a margem que você pediu, já descontada a taxa.</p>
+        </div>
       </div>
     </div>
 
@@ -575,15 +587,17 @@ function renderResultado(){
 
   // canais
   const m = num(p.margem) / 100;
+  const vazio = r.custo <= 0;
   $("r-canais").innerHTML = S.canais.map(c => {
     const t = num(c.pct) / 100, f = num(c.fixa);
     const recebe = r.venda * (1 - t) - f;
     const margem = r.venda > 0 ? (recebe - r.custo) / r.venda * 100 : 0;
     const den = 1 - t - m;
     const ideal = den > 0 ? (r.custo + f) / den : 0;
+    if (vazio) return `<tr><td>${c.nome}</td><td class="c-recebe">—</td><td>—</td><td class="destaque">—</td></tr>`;
     return `<tr>
       <td>${c.nome}</td>
-      <td>${brl(recebe)}</td>
+      <td class="c-recebe">${brl(recebe)}</td>
       <td style="color:${margem < 0 ? 'var(--perigo)' : 'inherit'}">${margem.toFixed(0)}%</td>
       <td class="destaque">${brl(ideal)}</td>
     </tr>`;

@@ -1,6 +1,6 @@
 /* Custo de Peça — NOMÊ STUDIO
    Troque a versão sempre que atualizar o app, para forçar o cache novo. */
-const VERSAO = "custo-nome-v1";
+const VERSAO = "custo-nome-v2";
 const ARQUIVOS = [
   "./",
   "./index.html",
