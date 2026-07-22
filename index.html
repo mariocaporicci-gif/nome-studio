@@ -2,875 +2,681 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Custo de Peça — NOMÊ STUDIO</title>
-<meta name="theme-color" content="#C75D3C">
-<link rel="manifest" href="./manifest.json">
-<link rel="apple-touch-icon" href="./icon-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Custo NOMÊ">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOMÊ STUDIO — Impressão 3D e peças personalizadas | Bento Gonçalves, RS</title>
+<meta name="description" content="Luminárias, vasos, chaveiros e itens pet impressos em 3D e personalizados com nome ou logo. Estúdio próprio em Bento Gonçalves, RS. Nota fiscal emitida.">
+<meta name="theme-color" content="#FBF8F3">
+<link rel="canonical" href="https://nomestudio.com.br/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nomestudio.com.br/">
+<meta property="og:site_name" content="NOMÊ STUDIO">
+<meta property="og:title" content="NOMÊ STUDIO — Impressão 3D e peças personalizadas">
+<meta property="og:description" content="Decoração e presentes impressos peça a peça, com o nome de quem vai ganhar.">
+<meta property="og:image" content="https://nomestudio.com.br/og.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+/* ============================================================
+   NOMÊ STUDIO — tokens da marca
+   Tinta #2B2622 · Terracota #C75D3C · Areia #FBF8F3 / #E9DECF
+   Sálvia #9BAE96 (reservada à linha pet)
+   ============================================================ */
 :root{
-  --tinta:#2B2622; --tinta-70:rgba(43,38,34,.70); --tinta-45:rgba(43,38,34,.45);
-  --terracota:#C75D3C; --terracota-esc:#A94A2D;
-  --areia:#FBF8F3; --areia-2:#E9DECF; --areia-3:#F3EDE3;
-  --salvia:#9BAE96; --salvia-esc:#7C9077;
-  --terracota-cl:#D9A38C; --areia-esc:#C7BCAB;
-  --perigo:#B3402B;
-  --disp:'Outfit',system-ui,-apple-system,sans-serif;
-  --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
-  --r:12px;
+  --tinta:#2B2622;
+  --tinta-70:rgba(43,38,34,.70);
+  --tinta-45:rgba(43,38,34,.45);
+  --terracota:#C75D3C;
+  --terracota-esc:#A94A2D;
+  --areia:#FBF8F3;
+  --areia-2:#E9DECF;
+  --areia-3:#F3EDE3;
+  --salvia:#9BAE96;
+  --salvia-esc:#7C9077;
+
+  --disp:'Outfit',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  --wrap:1180px;
+  --r:14px;
 }
+
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth}
 body{
-  margin:0;background:var(--areia);color:var(--tinta);
-  font-family:var(--disp);font-size:16px;line-height:1.5;
+  margin:0;
+  background:var(--areia);
+  color:var(--tinta);
+  font-family:var(--disp);
+  font-weight:400;
+  font-size:17px;
+  line-height:1.62;
   -webkit-font-smoothing:antialiased;
-  padding-bottom:env(safe-area-inset-bottom);
 }
-button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
-h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.2}
+img{max-width:100%;display:block}
+a{color:inherit}
 
-.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sec{padding:clamp(72px,9.5vw,124px) 0}
 
-/* ---------------- topo ---------------- */
+/* --- textura de camadas: assinatura do processo FDM --- */
+.camadas{
+  background-image:repeating-linear-gradient(
+    to bottom,
+    rgba(43,38,34,.055) 0 1px,
+    transparent 1px 5px
+  );
+}
+
+/* --- rótulos técnicos --- */
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11.5px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--terracota);
+  margin:0 0 18px;
+}
+.eyebrow.neutro{color:var(--tinta-45)}
+
+h1,h2,h3{margin:0;letter-spacing:-.022em;line-height:1.08;font-weight:700}
+h2{font-size:clamp(28px,4vw,44px)}
+h3{font-size:20px;line-height:1.22;letter-spacing:-.015em}
+p{margin:0}
+.lead{font-size:clamp(17px,1.7vw,19.5px);color:var(--tinta-70);max-width:56ch}
+
+/* ============================ HEADER ============================ */
 .topo{
-  position:sticky;top:0;z-index:40;background:var(--areia);
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,248,243,.88);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--areia-2);
-  padding-top:env(safe-area-inset-top);
 }
-.topo-in{display:flex;align-items:center;gap:14px;height:60px}
-.marca{display:flex;flex-direction:column;line-height:1}
-.marca b{font-size:19px;font-weight:800;letter-spacing:-.01em}
-.marca b i{font-style:normal;color:var(--terracota)}
-.marca span{font-family:var(--mono);font-size:8.5px;letter-spacing:.3em;color:var(--tinta-45);margin-top:4px}
-.titulo{
-  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--tinta-45);border-left:1px solid var(--areia-2);padding-left:14px;margin-left:2px;
+.topo-in{display:flex;align-items:center;gap:28px;height:70px}
+.marca{display:flex;flex-direction:column;text-decoration:none;line-height:1;flex:0 0 auto}
+.marca .nome{font-size:22px;font-weight:800;letter-spacing:-.01em}
+.marca .nome i{font-style:normal;color:var(--terracota)}
+.marca .desc{
+  font-family:var(--mono);font-size:9.5px;font-weight:500;
+  letter-spacing:.34em;color:var(--tinta-45);margin-top:5px;
 }
-.abas{display:flex;gap:4px;margin-left:auto;background:var(--areia-3);padding:4px;border-radius:100px}
-.abas button{
-  border:0;background:transparent;padding:8px 16px;border-radius:100px;
-  font-weight:600;font-size:14.5px;color:var(--tinta-70);cursor:pointer;transition:.16s;
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{
+  text-decoration:none;font-size:15px;font-weight:500;color:var(--tinta-70);
+  padding:6px 0;border-bottom:1.5px solid transparent;transition:.18s;
 }
-.abas button[aria-selected="true"]{background:var(--tinta);color:var(--areia)}
+.nav a:hover{color:var(--tinta);border-bottom-color:var(--terracota)}
 
-/* ---------------- estrutura ---------------- */
-.painel{padding:24px 0 60px}
-.painel[hidden]{display:none}
-.duo{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start}
-
-.bloco{
-  background:#fff;border:1px solid var(--areia-2);border-radius:var(--r);
-  padding:20px;margin-bottom:16px;
-}
-.bloco > h3{
-  font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--terracota);font-weight:500;margin-bottom:16px;
-}
-
-/* ---------------- campos ---------------- */
-.campo{margin-bottom:14px}
-.campo:last-child{margin-bottom:0}
-.campo label{display:block;font-size:13.5px;font-weight:500;color:var(--tinta-70);margin-bottom:6px}
-.campo input,.campo select,.campo textarea{
-  width:100%;padding:11px 13px;border:1.5px solid var(--areia-2);border-radius:9px;
-  background:var(--areia);transition:.16s;
-}
-.campo input:focus,.campo select:focus,.campo textarea:focus{
-  outline:none;border-color:var(--terracota);background:#fff;
-}
-.campo input[inputmode="decimal"]{font-family:var(--mono);font-weight:500}
-.linha{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.linha3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.dica{font-size:12px;color:var(--tinta-45);margin-top:5px;line-height:1.4}
-
-/* ---------------- extras ---------------- */
-.extra{display:grid;grid-template-columns:1fr 110px 38px;gap:8px;margin-bottom:8px;align-items:center}
-.extra input{padding:9px 11px}
-.lixo{
-  border:1.5px solid var(--areia-2);background:var(--areia);border-radius:9px;
-  height:40px;cursor:pointer;color:var(--tinta-45);font-size:17px;line-height:1;transition:.16s;
-}
-.lixo:hover{border-color:var(--perigo);color:var(--perigo)}
-.atalhos{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
-.atalho{
-  border:1.5px dashed var(--areia-2);background:transparent;border-radius:100px;
-  padding:7px 13px;font-size:13px;font-weight:500;color:var(--tinta-70);cursor:pointer;transition:.16s;
-}
-.atalho:hover{border-color:var(--terracota);border-style:solid;color:var(--terracota)}
-
-/* ---------------- resultado ---------------- */
-.col-b{position:sticky;top:76px}
-.resumo{
-  background:var(--tinta);color:var(--areia);border-radius:var(--r);
-  padding:22px 20px 18px;
-}
-.cartao{
-  background:#fff;border:1px solid var(--areia-2);border-radius:var(--r);
-  overflow:hidden;margin-top:16px;
-}
-.res-rot{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
-  color:rgba(251,248,243,.5);
-}
-.res-grande{font-family:var(--mono);font-size:34px;font-weight:600;letter-spacing:-.02em;margin-top:4px}
-.res-par{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;
-  padding-top:18px;border-top:1px solid rgba(251,248,243,.16)}
-.res-par .v{font-family:var(--mono);font-size:20px;font-weight:600;margin-top:3px}
-.res-par .v.pos{color:var(--salvia)}
-.res-par .v.neg{color:var(--terracota-cl)}
-
-/* barra de composição */
-.barra{display:flex;height:30px;overflow:hidden;background:var(--areia-2)}
-.barra div{transition:width .25s ease}
-.legenda{padding:16px 20px 18px}
-.leg{display:flex;align-items:center;gap:9px;padding:6px 0;font-size:13.5px}
-.leg .pt{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
-.leg .n{color:var(--tinta-70)}
-.leg .v{margin-left:auto;font-family:var(--mono);font-size:13px;font-weight:500}
-.leg .p{font-family:var(--mono);font-size:11.5px;color:var(--tinta-45);width:44px;text-align:right}
-
-/* tabela de canais */
-.tab{width:100%;border-collapse:collapse;font-size:13.5px}
-.tab th{
-  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--tinta-45);font-weight:500;text-align:right;padding:0 0 9px;
-}
-.tab th:first-child{text-align:left}
-.tab td{padding:9px 0;border-top:1px solid var(--areia-2);text-align:right;font-family:var(--mono);font-size:13px}
-.tab td:first-child{text-align:left;font-family:var(--disp);font-weight:500}
-.tab td.destaque{color:var(--terracota);font-weight:600}
-
-/* ---------------- botões ---------------- */
+/* ============================ BOTÕES ============================ */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:12px 20px;border-radius:100px;border:1.5px solid transparent;
-  font-weight:600;font-size:15px;cursor:pointer;transition:.18s;
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--disp);font-size:15.5px;font-weight:600;
+  padding:13px 24px;border-radius:100px;border:1.5px solid transparent;
+  text-decoration:none;cursor:pointer;transition:.2s;white-space:nowrap;
 }
-.btn-p{background:var(--terracota);color:#fff}
-.btn-p:hover{background:var(--terracota-esc)}
-.btn-s{border-color:var(--areia-2);background:#fff;color:var(--tinta)}
-.btn-s:hover{border-color:var(--tinta)}
-.btn-d{border-color:var(--areia-2);background:#fff;color:var(--perigo)}
-.btn-d:hover{border-color:var(--perigo)}
-.btn-larg{width:100%}
-.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.btn-zap{background:var(--terracota);color:var(--areia)}
+.btn-zap:hover{background:var(--terracota-esc);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--tinta);color:var(--tinta);background:transparent}
+.btn-ghost:hover{background:var(--tinta);color:var(--areia)}
+.btn-mini{padding:10px 18px;font-size:14.5px}
+.btn svg{width:17px;height:17px;flex:0 0 auto}
 
-/* ---------------- lista de peças ---------------- */
-.busca{margin-bottom:16px}
-.pecas{display:grid;gap:10px}
-.item{
+/* ============================ HERO ============================ */
+.hero{padding:clamp(52px,7vw,92px) 0 clamp(60px,8vw,104px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.6vw,66px);font-weight:800;max-width:14ch}
+.hero .lead{margin-top:24px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+
+/* palco da impressão */
+.palco{
+  position:relative;
+  background:var(--areia-3);
+  border:1px solid var(--areia-2);
+  border-radius:var(--r);
+  padding:26px;
+  aspect-ratio:1/1.06;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.palco svg{width:100%;height:100%}
+.palco-tag{
+  position:absolute;top:18px;left:20px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--tinta-45);
+}
+.mesa{stroke:var(--tinta);stroke-width:1;opacity:.28}
+.camada{fill:var(--tinta);opacity:0}
+.bico{fill:var(--terracota)}
+
+@media (prefers-reduced-motion:no-preference){
+  .camada{animation:sobe .5s ease-out forwards}
+  .bico{animation:varre 1.9s cubic-bezier(.4,0,.2,1) forwards}
+}
+@media (prefers-reduced-motion:reduce){
+  .camada{opacity:.92}
+  .bico{opacity:0}
+}
+@keyframes sobe{from{opacity:0;transform:translateY(7px)}to{opacity:.92;transform:translateY(0)}}
+@keyframes varre{0%{opacity:0}8%{opacity:1}88%{opacity:1}100%{opacity:0}}
+
+/* ============================ FAIXA DE GARANTIAS ============================ */
+.faixa{border-top:1px solid var(--areia-2);border-bottom:1px solid var(--areia-2);background:var(--areia-3)}
+.faixa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--areia-2)}
+.faixa-item{background:var(--areia-3);padding:30px 26px}
+.faixa-item .rot{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--terracota);display:block;margin-bottom:9px;
+}
+.faixa-item p{font-size:15.5px;color:var(--tinta-70);line-height:1.55}
+
+/* ============================ LINHAS ============================ */
+.cab{max-width:62ch;margin-bottom:52px}
+.cab .lead{margin-top:18px}
+
+.linhas{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{
+  background:#fff;
+  border:1px solid var(--areia-2);
+  border-radius:var(--r);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:.22s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(43,38,34,.075)}
+.card-fig{
+  background:var(--areia-3);
+  border-bottom:1px solid var(--areia-2);
+  aspect-ratio:16/10;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.card-fig svg{height:64%;opacity:.5}
+.card-fig .selo{
+  position:absolute;top:14px;left:16px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--areia);border:1px solid var(--areia-2);
+  padding:4px 9px;border-radius:100px;color:var(--tinta-45);
+}
+.card-corpo{padding:26px 26px 24px;display:flex;flex-direction:column;flex:1}
+.card-corpo h3{margin-bottom:10px}
+.card-corpo h3 i{font-style:normal;color:var(--terracota)}
+.card-corpo > p{font-size:15.5px;color:var(--tinta-70);line-height:1.58}
+
+/* ficha técnica — a estrutura reflete o produto: são objetos com medida */
+.ficha{border-top:1px solid var(--areia-2);margin-top:22px;padding-top:16px}
+.ficha div{
+  display:flex;justify-content:space-between;gap:16px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.02em;
+  padding:5px 0;color:var(--tinta);
+}
+.ficha div span:first-child{color:var(--tinta-45);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px}
+.card-link{
+  margin-top:22px;text-decoration:none;font-weight:600;font-size:15px;color:var(--terracota);
+  display:inline-flex;align-items:center;gap:7px;align-self:flex-start;
+}
+.card-link:hover{gap:11px}
+.card-link span{transition:.2s}
+
+/* variação sálvia — só a linha pet */
+.card.pet .card-fig{background:var(--salvia);border-bottom-color:var(--salvia-esc)}
+.card.pet .card-fig svg{opacity:.62;color:#fff}
+.card.pet .card-fig .selo{background:var(--salvia-esc);border-color:var(--salvia-esc);color:#fff}
+.card.pet .card-corpo h3 i{color:var(--salvia-esc)}
+.card.pet .card-link{color:var(--salvia-esc)}
+
+/* ============================ SOB MEDIDA ============================ */
+.medida{background:var(--tinta);color:var(--areia)}
+.medida .eyebrow{color:var(--salvia)}
+.medida-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.medida h2{color:var(--areia)}
+.medida p.lead{color:rgba(251,248,243,.72)}
+.medida .btn-zap{margin-top:30px}
+.passos{list-style:none;margin:0;padding:0;counter-reset:p}
+.passos li{
+  counter-increment:p;
+  padding:18px 0 18px 52px;position:relative;
+  border-bottom:1px solid rgba(251,248,243,.14);
+  font-size:16px;color:rgba(251,248,243,.82);
+}
+.passos li:last-child{border-bottom:none}
+.passos li::before{
+  content:counter(p,decimal-leading-zero);
+  position:absolute;left:0;top:19px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--terracota);
+}
+.passos li b{color:var(--areia);font-weight:600}
+
+/* ============================ ONDE COMPRAR ============================ */
+.lojas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.loja{
   background:#fff;border:1px solid var(--areia-2);border-radius:var(--r);
-  padding:15px 18px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:.16s;
+  padding:24px 22px;text-decoration:none;transition:.2s;
+  display:flex;flex-direction:column;gap:7px;
 }
-.item:hover{border-color:var(--tinta)}
-.item .info{flex:1;min-width:0}
-.item .nm{font-weight:600;font-size:16px}
-.item .meta{font-family:var(--mono);font-size:11.5px;color:var(--tinta-45);margin-top:3px}
-.item .nums{text-align:right;flex:0 0 auto}
-.item .custo{font-family:var(--mono);font-size:12px;color:var(--tinta-45)}
-.item .venda{font-family:var(--mono);font-size:17px;font-weight:600;color:var(--terracota)}
-.vazio{
-  text-align:center;padding:52px 20px;color:var(--tinta-45);
-  border:1.5px dashed var(--areia-2);border-radius:var(--r);
-}
-.vazio b{display:block;color:var(--tinta);font-size:17px;margin-bottom:6px;font-weight:600}
+.loja:hover{border-color:var(--tinta);transform:translateY(-3px)}
+.loja .n{font-weight:600;font-size:17px}
+.loja .u{font-family:var(--mono);font-size:11.5px;color:var(--tinta-45);letter-spacing:.06em}
 
-/* ---------------- avisos ---------------- */
-.aviso{
-  background:var(--areia-3);border:1px solid var(--areia-2);border-left:3px solid var(--terracota);
-  border-radius:8px;padding:12px 15px;font-size:13.5px;color:var(--tinta-70);margin-bottom:16px;
-}
-.toast{
-  position:fixed;left:50%;transform:translateX(-50%);bottom:26px;z-index:90;
-  background:var(--tinta);color:var(--areia);padding:13px 24px;border-radius:100px;
-  font-weight:600;font-size:14.5px;box-shadow:0 8px 26px rgba(43,38,34,.28);
-  opacity:0;pointer-events:none;transition:.28s;
-}
-.toast.on{opacity:1;transform:translateX(-50%) translateY(-4px)}
+/* ============================ CONTATO ============================ */
+.contato{background:var(--areia-3);border-top:1px solid var(--areia-2)}
+.contato-in{text-align:center;max-width:60ch;margin:0 auto}
+.contato .lead{margin:20px auto 32px}
+.contato-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
-  outline:2.5px solid var(--terracota);outline-offset:2px;
+/* ============================ RODAPÉ ============================ */
+.rodape{background:var(--tinta);color:rgba(251,248,243,.68);padding:56px 0 40px;font-size:14.5px}
+.rodape a{text-decoration:none;color:rgba(251,248,243,.68);transition:.18s}
+.rodape a:hover{color:var(--areia)}
+.rodape-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.rodape .marca .nome{color:var(--areia)}
+.rodape .marca .desc{color:rgba(251,248,243,.42)}
+.rodape h4{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(251,248,243,.42);margin:0 0 14px;font-weight:500;
+}
+.rodape ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.rodape .base{
+  border-top:1px solid rgba(251,248,243,.14);padding-top:24px;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:rgba(251,248,243,.42);
 }
 
-/* ---------------- responsivo ---------------- */
-@media (max-width:900px){
-  .duo{grid-template-columns:1fr}
-  .col-b{display:contents}
-  .resumo{order:-2;position:sticky;top:56px;z-index:25;box-shadow:0 6px 18px rgba(43,38,34,.12)}
-  .col-a{order:-1;margin-top:16px}
-  .detalhe{order:0}
-  .cartao{margin-top:0}
-  .titulo{display:none}
+/* ============================ BOTÃO FLUTUANTE ============================ */
+.flutua{
+  position:fixed;right:20px;bottom:20px;z-index:60;
+  box-shadow:0 8px 26px rgba(43,38,34,.24);
 }
-@media (max-width:560px){
-  .topo-in{height:56px;gap:10px}
-  .abas button{padding:8px 12px;font-size:13.5px}
-  .linha3{grid-template-columns:1fr 1fr}
-  .res-grande{font-size:30px}
-  .item{padding:13px 15px}
-  .c-recebe{display:none}
-  .tab td,.tab th{font-size:12.5px}
+
+/* ============================ REVELAÇÃO NO SCROLL ============================ */
+.rev{opacity:0;transform:translateY(16px)}
+.rev.on{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+@media (prefers-reduced-motion:reduce){
+  .rev{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ============================ FOCO VISÍVEL ============================ */
+a:focus-visible,button:focus-visible{
+  outline:2.5px solid var(--terracota);outline-offset:3px;border-radius:4px;
+}
+
+/* ============================ RESPONSIVO ============================ */
+@media (max-width:940px){
+  .hero-grid,.medida-grid{grid-template-columns:1fr;gap:44px}
+  .palco{max-width:420px;margin:0 auto;aspect-ratio:1/1}
+  .lojas{grid-template-columns:repeat(2,1fr)}
+  .faixa-grid{grid-template-columns:1fr}
+  .rodape-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .nav{display:none}
+  .topo-in{justify-content:space-between}
+  .linhas{grid-template-columns:1fr}
+  .hero h1{max-width:none}
+}
+@media (max-width:480px){
+  body{font-size:16px}
+  .lojas,.rodape-grid{grid-template-columns:1fr}
+  .flutua{right:14px;bottom:14px}
 }
 </style>
 </head>
 <body>
 
+<!-- ===================== HEADER ===================== -->
 <header class="topo">
   <div class="wrap topo-in">
-    <span class="marca"><b>NOM<i>Ê</i></b><span>STUDIO</span></span>
-    <span class="titulo">Custo de peça</span>
-    <div class="abas" role="tablist">
-      <button role="tab" aria-selected="true" data-aba="calc">Calcular</button>
-      <button role="tab" aria-selected="false" data-aba="pecas">Peças</button>
-      <button role="tab" aria-selected="false" data-aba="ajus">Ajustes</button>
-    </div>
+    <a href="#topo" class="marca" id="topo">
+      <span class="nome">NOM<i>Ê</i></span>
+      <span class="desc">STUDIO</span>
+    </a>
+    <nav class="nav">
+      <a href="#linhas">Linhas</a>
+      <a href="#sob-medida">Sob medida</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-zap btn-mini js-zap" href="#">Falar no WhatsApp</a>
   </div>
 </header>
 
-<main class="wrap">
-
-<!-- ================= CALCULAR ================= -->
-<section class="painel" id="p-calc">
-  <div class="duo">
-
-    <div class="col-a">
-      <div class="bloco">
-        <h3>A peça</h3>
-        <div class="campo">
-          <label for="f-nome">Nome</label>
-          <input id="f-nome" type="text" placeholder="Ex.: Vaso Voluta 25cm">
-        </div>
-        <div class="linha">
-          <div class="campo">
-            <label for="f-cat">Linha</label>
-            <select id="f-cat">
-              <option>Voluta</option><option>ORE e confie</option>
-              <option>Chaveiros</option><option>Pet</option><option>Outros</option>
-            </select>
-          </div>
-          <div class="campo">
-            <label for="f-fil">Filamento</label>
-            <select id="f-fil"></select>
-          </div>
-        </div>
-      </div>
-
-      <div class="bloco">
-        <h3>Impressão</h3>
-        <div class="linha3">
-          <div class="campo">
-            <label for="f-peso">Peso (g)</label>
-            <input id="f-peso" type="text" inputmode="decimal" placeholder="0">
-          </div>
-          <div class="campo">
-            <label for="f-th">Horas</label>
-            <input id="f-th" type="text" inputmode="decimal" placeholder="0">
-          </div>
-          <div class="campo">
-            <label for="f-tm">Minutos</label>
-            <input id="f-tm" type="text" inputmode="decimal" placeholder="0">
-          </div>
-        </div>
-        <p class="dica">Peso e tempo saem direto do Bambu Studio depois de fatiar.</p>
-      </div>
-
-      <div class="bloco">
-        <h3>Custos avulsos</h3>
-        <div id="extras"></div>
-        <div class="atalhos" id="atalhos"></div>
-      </div>
-
-      <div class="bloco">
-        <h3>Acabamento e margem</h3>
-        <div class="linha">
-          <div class="campo">
-            <label for="f-acab">Acabamento (min)</label>
-            <input id="f-acab" type="text" inputmode="decimal" placeholder="0">
-          </div>
-          <div class="campo">
-            <label for="f-margem">Margem desejada (%)</label>
-            <input id="f-margem" type="text" inputmode="decimal">
-          </div>
-        </div>
-        <p class="dica">Margem é sobre o preço de venda, não sobre o custo. 60% de margem quer dizer que 60% do que o cliente paga sobra pra você.</p>
-      </div>
-
-      <div class="acoes">
-        <button class="btn btn-p" id="b-salvar">Salvar peça</button>
-        <button class="btn btn-s" id="b-limpar">Limpar</button>
-      </div>
-    </div>
-
-    <div class="col-b">
-      <div class="resumo">
-        <div class="res-rot">Preço de venda sugerido</div>
-        <div class="res-grande" id="r-venda">R$ 0,00</div>
-        <div class="res-par">
-          <div>
-            <div class="res-rot">Custo total</div>
-            <div class="v" id="r-custo">R$ 0,00</div>
-          </div>
-          <div>
-            <div class="res-rot">Lucro por peça</div>
-            <div class="v pos" id="r-lucro">R$ 0,00</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="detalhe">
-        <div class="cartao">
-          <div class="barra" id="r-barra"></div>
-          <div class="legenda" id="r-legenda"></div>
-        </div>
-
-        <div class="bloco" style="margin-top:16px">
-          <h3>Se vender por canal</h3>
-          <table class="tab">
-            <thead><tr><th>Canal</th><th class="c-recebe">Você recebe</th><th>Margem</th><th>Preço ideal</th></tr></thead>
-            <tbody id="r-canais"></tbody>
-          </table>
-          <p class="dica">"Preço ideal" é quanto cobrar naquele canal pra manter a margem que você pediu, já descontada a taxa.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= PEÇAS ================= -->
-<section class="painel" id="p-pecas" hidden>
-  <div class="campo busca">
-    <input id="f-busca" type="search" placeholder="Buscar peça...">
-  </div>
-  <div class="pecas" id="lista"></div>
-  <div class="acoes" style="margin-top:20px">
-    <button class="btn btn-s" id="b-csv">Exportar CSV</button>
-  </div>
-</section>
-
-<!-- ================= AJUSTES ================= -->
-<section class="painel" id="p-ajus" hidden>
-  <div class="duo">
+<!-- ===================== HERO ===================== -->
+<section class="hero camadas">
+  <div class="wrap hero-grid">
     <div>
-      <div class="bloco">
-        <h3>Filamentos</h3>
-        <div id="filamentos"></div>
-        <div class="atalhos"><button class="atalho" id="b-add-fil">+ Adicionar filamento</button></div>
-      </div>
-
-      <div class="bloco">
-        <h3>Energia</h3>
-        <div class="linha">
-          <div class="campo">
-            <label for="a-pot">Potência média (W)</label>
-            <input id="a-pot" type="text" inputmode="decimal">
-          </div>
-          <div class="campo">
-            <label for="a-tar">Tarifa (R$/kWh)</label>
-            <input id="a-tar" type="text" inputmode="decimal">
-          </div>
-        </div>
-        <p class="dica">A tarifa está na sua conta de luz, no campo de valor por kWh já com impostos. A potência é uma média — a A1 puxa mais no aquecimento e menos depois.</p>
-      </div>
-
-      <div class="bloco">
-        <h3>Trabalho e perdas</h3>
-        <div class="linha">
-          <div class="campo">
-            <label for="a-mo">Sua hora (R$)</label>
-            <input id="a-mo" type="text" inputmode="decimal">
-          </div>
-          <div class="campo">
-            <label for="a-falha">Taxa de falha (%)</label>
-            <input id="a-falha" type="text" inputmode="decimal">
-          </div>
-        </div>
-        <p class="dica">A taxa de falha embute no preço as peças que dão errado. Se a cada 20 impressões uma sai pro lixo, isso é 5%.</p>
-      </div>
-
-      <div class="bloco">
-        <h3>Margem padrão</h3>
-        <div class="campo">
-          <label for="a-margem">Margem sugerida em peça nova (%)</label>
-          <input id="a-margem" type="text" inputmode="decimal">
-        </div>
+      <p class="eyebrow">Estúdio de impressão 3D · Bento Gonçalves, RS</p>
+      <h1>Decoração e presentes impressos peça a peça.</h1>
+      <p class="lead">Desenhamos e imprimimos luminárias, vasos, chaveiros e itens pet aqui no estúdio. Você leva do jeito que está — ou com o nome de quem vai ganhar gravado em relevo.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-zap js-zap" href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#linhas">Ver as linhas</a>
       </div>
     </div>
 
-    <div>
-      <div class="bloco">
-        <h3>Canais de venda</h3>
-        <div id="canais"></div>
-        <div class="atalhos"><button class="atalho" id="b-add-canal">+ Adicionar canal</button></div>
-        <p class="dica">Taxas mudam com frequência e por categoria. Confira na sua conta de vendedor e ajuste aqui.</p>
-      </div>
+    <div class="palco" aria-hidden="true">
+      <span class="palco-tag">Camada 56 / 56</span>
+      <svg viewBox="0 0 300 320" id="impressao" xmlns="http://www.w3.org/2000/svg">
+        <line class="mesa" x1="34" y1="292" x2="266" y2="292"></line>
+      </svg>
+    </div>
+  </div>
+</section>
 
-      <div class="bloco">
-        <h3>Atalhos de custo avulso</h3>
-        <div id="presets"></div>
-        <div class="atalhos"><button class="atalho" id="b-add-preset">+ Adicionar atalho</button></div>
+<!-- ===================== FAIXA ===================== -->
+<section class="faixa">
+  <div class="wrap">
+    <div class="faixa-grid">
+      <div class="faixa-item">
+        <span class="rot">Feito aqui</span>
+        <p>Modelagem, impressão e acabamento no nosso estúdio, sem intermediário.</p>
       </div>
-
-      <div class="bloco">
-        <h3>Seus dados</h3>
-        <div class="aviso">Tudo fica salvo só neste aparelho, neste navegador. Se limpar os dados do navegador ou trocar de celular, perde. Exporte um backup de vez em quando.</div>
-        <div class="acoes">
-          <button class="btn btn-s" id="b-backup">Exportar backup</button>
-          <button class="btn btn-s" id="b-restaurar">Importar backup</button>
-        </div>
-        <div class="acoes" style="margin-top:10px">
-          <button class="btn btn-d btn-larg" id="b-zerar">Apagar tudo</button>
-        </div>
-        <input type="file" id="f-arquivo" accept="application/json" hidden>
+      <div class="faixa-item">
+        <span class="rot">Com nota fiscal</span>
+        <p>Emitida por MAC ADM LTDA — atende pedido corporativo e compra de empresa.</p>
+      </div>
+      <div class="faixa-item">
+        <span class="rot">Personalizável</span>
+        <p>Nome, logo e combinação de cores definidos antes de a peça começar a imprimir.</p>
       </div>
     </div>
   </div>
 </section>
 
-</main>
+<!-- ===================== LINHAS ===================== -->
+<section class="sec" id="linhas">
+  <div class="wrap">
+    <div class="cab rev">
+      <p class="eyebrow">As linhas</p>
+      <h2>Quatro famílias de peças</h2>
+      <p class="lead">Cada linha nasce de um desenho próprio e é impressa sob demanda. Se quiser outra cor ou o nome aplicado, é só pedir antes da produção.</p>
+    </div>
 
-<div class="toast" id="toast"></div>
+    <div class="linhas">
+
+      <!-- VOLUTA -->
+      <article class="card rev">
+        <div class="card-fig">
+          <span class="selo">Linha assinatura</span>
+          <svg viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+            <path d="M60 8c-16 10-26 24-26 42 0 20 14 30 14 48 0 16-10 26-22 34"/>
+            <path d="M60 8c16 10 26 24 26 42 0 20-14 30-14 48 0 16 10 26 22 34"/>
+            <path d="M34 50c17 8 35 8 52 0M40 98c13 6 27 6 40 0"/>
+            <line x1="18" y1="152" x2="102" y2="152"/>
+          </svg>
+        </div>
+        <div class="card-corpo">
+          <h3>Linha Voluta <i>·</i> luminária e vaso</h3>
+          <p>Uma torção contínua que sobe pela peça inteira, do pé até a borda. A luminária funciona com LED de baixo consumo; o vaso repete o mesmo desenho e fecha o par.</p>
+          <div class="ficha">
+            <div><span>Altura</span><span>25 cm</span></div>
+            <div><span>Material</span><span>PLA</span></div>
+            <div><span>Formatos</span><span>Luminária, vaso ou dupla</span></div>
+          </div>
+          <a class="card-link js-zap" href="#">Pedir a Voluta <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- ORE E CONFIE -->
+      <article class="card rev">
+        <div class="card-fig">
+          <span class="selo">Kit fechado</span>
+          <svg viewBox="0 0 140 120" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+            <rect x="8" y="14" width="58" height="44" rx="4"/>
+            <path d="M20 30h34M20 40h24"/>
+            <path d="M80 30h34l-5 30H85z"/>
+            <path d="M78 26h40"/>
+            <ellipse cx="70" cy="94" rx="54" ry="14"/>
+            <path d="M16 94c0 6 24 10 54 10s54-4 54-10"/>
+          </svg>
+        </div>
+        <div class="card-corpo">
+          <h3>ORE e confie <i>·</i> 3 peças</h3>
+          <p>Placa com a frase em relevo, cachepô e bandeja oval — desenhados pra ficarem juntos num canto da casa. Impressos em cores combinadas na mesma peça.</p>
+          <div class="ficha">
+            <div><span>Composição</span><span>Placa, cachepô e bandeja</span></div>
+            <div><span>Impressão</span><span>Multicolor</span></div>
+            <div><span>Venda</span><span>Kit completo</span></div>
+          </div>
+          <a class="card-link js-zap" href="#">Pedir o kit <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- CHAVEIROS -->
+      <article class="card rev">
+        <div class="card-fig">
+          <span class="selo">Lote e corporativo</span>
+          <svg viewBox="0 0 150 100" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+            <circle cx="26" cy="50" r="12"/>
+            <rect x="42" y="30" width="86" height="40" rx="12"/>
+            <path d="M56 50h22M86 50h10"/>
+            <circle cx="112" cy="50" r="9"/>
+            <path d="M112 41v18M103 50h18"/>
+          </svg>
+        </div>
+        <div class="card-corpo">
+          <h3>Chaveiros personalizados <i>·</i> nome e logo</h3>
+          <p>Nome em relevo e o logo da empresa aplicado na mesma peça. Feitos em lote pra equipe, evento, escola ou brinde de cliente — com argola inclusa.</p>
+          <div class="ficha">
+            <div><span>Lote mínimo</span><span>50 unidades</span></div>
+            <div><span>Personalização</span><span>Nome + logo</span></div>
+            <div><span>Inclui</span><span>Argola metálica</span></div>
+          </div>
+          <a class="card-link js-zap" href="#">Pedir orçamento <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- PET -->
+      <article class="card pet rev">
+        <div class="card-fig">
+          <span class="selo">Linha pet</span>
+          <svg viewBox="0 0 140 110" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+            <path d="M22 58h96l-9 34H31z"/>
+            <ellipse cx="70" cy="58" rx="48" ry="12"/>
+            <circle cx="52" cy="28" r="7"/><circle cx="70" cy="22" r="7"/><circle cx="88" cy="28" r="7"/>
+            <path d="M58 42c0-7 5-12 12-12s12 5 12 12"/>
+          </svg>
+        </div>
+        <div class="card-corpo">
+          <h3>Linha pet <i>·</i> com o nome do bicho</h3>
+          <p>Comedouros e potes com o nome do pet aplicado na frente. Cores da linha em tom sálvia, pensadas pra combinar com o canto de comida sem destoar da casa.</p>
+          <div class="ficha">
+            <div><span>Personalização</span><span>Nome do pet</span></div>
+            <div><span>Cor da linha</span><span>Sálvia</span></div>
+            <div><span>Produção</span><span>Sob encomenda</span></div>
+          </div>
+          <a class="card-link js-zap" href="#">Personalizar <span>→</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOB MEDIDA ===================== -->
+<section class="sec medida" id="sob-medida">
+  <div class="wrap medida-grid">
+    <div class="rev">
+      <p class="eyebrow">Sob medida</p>
+      <h2>Sua marca virando peça física</h2>
+      <p class="lead">Mande o logo e a quantidade. A gente transforma o arquivo em modelo 3D, imprime uma amostra pra você aprovar e só depois produz o lote. Nota fiscal emitida por MAC ADM LTDA.</p>
+      <a class="btn btn-zap js-zap" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+        Enviar meu logo
+      </a>
+    </div>
+    <ol class="passos rev">
+      <li><b>Você manda o logo</b> em qualquer formato — a gente vetoriza se precisar.</li>
+      <li><b>Recebe o orçamento</b> com preço por unidade nas faixas de quantidade.</li>
+      <li><b>Aprova uma amostra impressa</b> antes de o lote inteiro entrar na fila.</li>
+      <li><b>Produção e entrega</b> com prazo combinado e nota fiscal junto.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section class="sec contato" id="contato">
+  <div class="wrap contato-in rev">
+    <p class="eyebrow">Contato</p>
+    <h2>Conta o que você tem em mente</h2>
+    <p class="lead">Uma peça pronta, um presente com nome ou um lote pra empresa — a gente responde no WhatsApp no mesmo dia.</p>
+    <div class="contato-ctas">
+      <a class="btn btn-zap js-zap" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a class="btn btn-ghost js-insta" href="#" target="_blank" rel="noopener">Ver no Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape-grid">
+      <div>
+        <span class="marca">
+          <span class="nome">NOM<i>Ê</i></span>
+          <span class="desc">STUDIO</span>
+        </span>
+        <p style="margin-top:18px;max-width:34ch">Impressão 3D e peças personalizadas. Bento Gonçalves, Rio Grande do Sul.</p>
+      </div>
+      <div>
+        <h4>Linhas</h4>
+        <ul>
+          <li><a href="#linhas">Voluta</a></li>
+          <li><a href="#linhas">ORE e confie</a></li>
+          <li><a href="#linhas">Chaveiros</a></li>
+          <li><a href="#linhas">Linha pet</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a class="js-zap" href="#">WhatsApp</a></li>
+          <li><a class="js-insta" href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a class="js-tiktok" href="#" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a class="js-face" href="#" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a class="js-email" href="#">E-mail</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>NOMÊ STUDIO · MAC ADM LTDA · CNPJ 00.000.000/0001-00</span>
+      <span>Bento Gonçalves, RS</span>
+    </div>
+  </div>
+</footer>
+
+<a class="btn btn-zap flutua js-zap" href="#" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+  WhatsApp
+</a>
 
 <script>
-"use strict";
+/* ==========================================================
+   CONFIGURAÇÃO — troque só os valores abaixo
+   ========================================================== */
+const CONFIG = {
+  // ---- confirmados ----
+  whatsapp:  "5554981250170",
+  mensagem:  "Olá! Vim pelo site da NOMÊ STUDIO e quero saber mais sobre as peças.",
+  instagram: "https://www.instagram.com/nomestudiobr/",
+  tiktok:    "https://www.tiktok.com/@nomestudiobr",
 
-/* ============ armazenamento com plano B ============ */
-const Store = (() => {
-  const K = "nome_custo_v1";
-  let memoria = null, temLS = true;
-  try { localStorage.setItem("_t","1"); localStorage.removeItem("_t"); }
-  catch(e){ temLS = false; }
-  return {
-    ler(){
-      try { return temLS ? JSON.parse(localStorage.getItem(K)) : memoria; }
-      catch(e){ return null; }
-    },
-    gravar(d){
-      memoria = d;
-      if (!temLS) return;
-      try { localStorage.setItem(K, JSON.stringify(d)); } catch(e){}
-    },
-    persistente: temLS
-  };
+  // ---- a preencher ----
+  facebook:  "",   // cole a URL da Página "NOMÊ Studio"
+  email:     "",   // ex.: contato@nomestudio.com.br (precisa de serviço de e-mail)
+};
+
+/* --- aplica os links; o que estiver vazio some da página --- */
+const zap = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.mensagem);
+const set = (sel, href, blank) => document.querySelectorAll(sel).forEach(a => {
+  if (!href) { const li = a.closest("li"); (li || a).style.display = "none"; return; }
+  a.href = href;
+  if (blank) { a.target = "_blank"; a.rel = "noopener"; }
+});
+set(".js-zap", zap, true);
+set(".js-insta", CONFIG.instagram, true);
+set(".js-tiktok", CONFIG.tiktok, true);
+set(".js-face", CONFIG.facebook, true);
+set(".js-email", CONFIG.email ? "mailto:" + CONFIG.email : "", false);
+
+/* ==========================================================
+   HERO — a peça se constrói camada por camada
+   ========================================================== */
+(function () {
+  const svg = document.getElementById("impressao");
+  if (!svg) return;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const N = 56, base = 290, topo = 42, alt = (base - topo) / N;
+
+  for (let i = 0; i < N; i++) {
+    const t = i / (N - 1);
+    // perfil do vaso/luminária: pé estreito, bojo, cintura e boca aberta
+    const r = 30 + 52 * Math.sin(Math.PI * (0.16 + 0.78 * t)) - 26 * t + 22 * Math.pow(t, 3.4);
+    const twist = 5 * Math.sin(t * Math.PI * 3.2);   // sugere a torção da Voluta
+    const y = base - (i + 1) * alt;
+
+    const rect = document.createElementNS(NS, "rect");
+    rect.setAttribute("class", "camada");
+    rect.setAttribute("x", (150 + twist - r).toFixed(2));
+    rect.setAttribute("y", y.toFixed(2));
+    rect.setAttribute("width", (r * 2).toFixed(2));
+    rect.setAttribute("height", (alt - 0.9).toFixed(2));
+    rect.setAttribute("rx", "1.2");
+    rect.style.animationDelay = (i * 26) + "ms";
+    svg.appendChild(rect);
+  }
+
+  // o bico da impressora subindo à frente das camadas
+  const bico = document.createElementNS(NS, "rect");
+  bico.setAttribute("class", "bico");
+  bico.setAttribute("x", "40");
+  bico.setAttribute("width", "220");
+  bico.setAttribute("height", "1.8");
+  bico.setAttribute("y", base);
+  svg.appendChild(bico);
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const t0 = performance.now(), dur = N * 26 + 500;
+    (function anima(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      bico.setAttribute("y", (base - p * (base - topo)).toFixed(2));
+      if (p < 1) requestAnimationFrame(anima);
+    })(t0);
+  }
 })();
 
-/* ============ estado inicial ============ */
-const PADRAO = {
-  filamentos: [
-    { id:"f1", nome:"PLA Matte", precoKg:80 },
-    { id:"f2", nome:"PLA Básico", precoKg:70 }
-  ],
-  potencia: 110,
-  tarifa: 0.95,
-  maoObra: 0,
-  falha: 5,
-  margemPadrao: 60,
-  canais: [
-    { id:"c0", nome:"Venda direta", pct:0,  fixa:0 },
-    { id:"c1", nome:"Shopee",       pct:14, fixa:4 },
-    { id:"c2", nome:"Mercado Livre",pct:13, fixa:0 },
-    { id:"c3", nome:"Amazon",       pct:12, fixa:0 }
-  ],
-  presets: [
-    { nome:"Embalagem", valor:4.35 },
-    { nome:"Argola",    valor:0.25 },
-    { nome:"Kit LED",   valor:8.00 }
-  ],
-  pecas: []
-};
-
-let S = Store.ler() || JSON.parse(JSON.stringify(PADRAO));
-// garante que versões antigas ganhem campos novos
-for (const k in PADRAO) if (!(k in S)) S[k] = JSON.parse(JSON.stringify(PADRAO[k]));
-
-let extras = [];
-let editando = null;
-
-const salvar = () => Store.gravar(S);
-const $ = id => document.getElementById(id);
-const num = v => { const n = parseFloat(String(v ?? "").replace(",", ".").trim()); return isFinite(n) ? n : 0; };
-const brl = v => "R$ " + (isFinite(v) ? v : 0).toLocaleString("pt-BR", {minimumFractionDigits:2, maximumFractionDigits:2});
-const uid = () => Math.random().toString(36).slice(2, 9);
-
-function toast(msg){
-  const t = $("toast");
-  t.textContent = msg;
-  t.classList.add("on");
-  clearTimeout(t._t);
-  t._t = setTimeout(() => t.classList.remove("on"), 2200);
-}
-
-/* ============ o cálculo ============ */
-function calcular(p){
-  const fil = S.filamentos.find(f => f.id === p.filamentoId) || S.filamentos[0] || {precoKg:0};
-  const horas = num(p.tempoH) + num(p.tempoM) / 60;
-
-  const filamento  = num(p.pesoG) / 1000 * num(fil.precoKg);
-  const energia    = num(S.potencia) / 1000 * horas * num(S.tarifa);
-  const avulsos    = (p.extras || []).reduce((s, e) => s + num(e.valor), 0);
-  const acabamento = num(p.acabamentoMin) / 60 * num(S.maoObra);
-
-  const base   = filamento + energia + avulsos + acabamento;
-  const perda  = base * num(S.falha) / 100;
-  const custo  = base + perda;
-
-  const m = num(p.margem) / 100;
-  const venda = (m > 0 && m < 1) ? custo / (1 - m) : custo;
-  const lucro = venda - custo;
-
-  return { filamento, energia, avulsos, acabamento, perda, custo, venda, lucro, horas };
-}
-
-function lerFormulario(){
-  return {
-    nome: $("f-nome").value.trim(),
-    categoria: $("f-cat").value,
-    filamentoId: $("f-fil").value,
-    pesoG: $("f-peso").value,
-    tempoH: $("f-th").value,
-    tempoM: $("f-tm").value,
-    acabamentoMin: $("f-acab").value,
-    margem: $("f-margem").value,
-    extras: extras.slice()
-  };
-}
-
-/* ============ resultado ============ */
-const CORES = [
-  ["filamento",  "Filamento",  "#2B2622"],
-  ["energia",    "Energia",    "#C75D3C"],
-  ["avulsos",    "Avulsos",    "#9BAE96"],
-  ["acabamento", "Acabamento", "#D9A38C"],
-  ["perda",      "Falhas",     "#C7BCAB"]
-];
-
-function renderResultado(){
-  const p = lerFormulario();
-  const r = calcular(p);
-
-  $("r-venda").textContent = brl(r.venda);
-  $("r-custo").textContent = brl(r.custo);
-  const el = $("r-lucro");
-  el.textContent = brl(r.lucro);
-  el.className = "v " + (r.lucro > 0 ? "pos" : "neg");
-
-  // barra de composição
-  const barra = $("r-barra"), leg = $("r-legenda");
-  barra.innerHTML = ""; leg.innerHTML = "";
-  const total = r.custo || 1;
-
-  CORES.forEach(([chave, rotulo, cor]) => {
-    const v = r[chave];
-    if (v > 0){
-      const d = document.createElement("div");
-      d.style.width = (v / total * 100) + "%";
-      d.style.background = cor;
-      d.title = rotulo + " " + brl(v);
-      barra.appendChild(d);
-    }
-    const li = document.createElement("div");
-    li.className = "leg";
-    li.innerHTML = `<span class="pt" style="background:${cor}"></span>
-                    <span class="n">${rotulo}</span>
-                    <span class="v">${brl(v)}</span>
-                    <span class="p">${(v/total*100).toFixed(0)}%</span>`;
-    leg.appendChild(li);
-  });
-
-  // canais
-  const m = num(p.margem) / 100;
-  const vazio = r.custo <= 0;
-  $("r-canais").innerHTML = S.canais.map(c => {
-    const t = num(c.pct) / 100, f = num(c.fixa);
-    const recebe = r.venda * (1 - t) - f;
-    const margem = r.venda > 0 ? (recebe - r.custo) / r.venda * 100 : 0;
-    const den = 1 - t - m;
-    const ideal = den > 0 ? (r.custo + f) / den : 0;
-    if (vazio) return `<tr><td>${c.nome}</td><td class="c-recebe">—</td><td>—</td><td class="destaque">—</td></tr>`;
-    return `<tr>
-      <td>${c.nome}</td>
-      <td class="c-recebe">${brl(recebe)}</td>
-      <td style="color:${margem < 0 ? 'var(--perigo)' : 'inherit'}">${margem.toFixed(0)}%</td>
-      <td class="destaque">${brl(ideal)}</td>
-    </tr>`;
-  }).join("");
-}
-
-/* ============ extras da peça ============ */
-function renderExtras(){
-  const box = $("extras");
-  box.innerHTML = "";
-  extras.forEach((e, i) => {
-    const div = document.createElement("div");
-    div.className = "extra";
-    div.innerHTML = `<input type="text" value="${e.nome}" placeholder="Item">
-                     <input type="text" inputmode="decimal" value="${e.valor}" placeholder="0,00">
-                     <button class="lixo" title="Remover">&times;</button>`;
-    const [n, v, b] = div.children;
-    n.oninput = () => { e.nome = n.value; };
-    v.oninput = () => { e.valor = v.value; renderResultado(); };
-    b.onclick = () => { extras.splice(i, 1); renderExtras(); renderResultado(); };
-    box.appendChild(div);
-  });
-
-  const at = $("atalhos");
-  at.innerHTML = "";
-  S.presets.forEach(p => {
-    const b = document.createElement("button");
-    b.className = "atalho";
-    b.textContent = `+ ${p.nome} ${brl(p.valor)}`;
-    b.onclick = () => { extras.push({nome:p.nome, valor:p.valor}); renderExtras(); renderResultado(); };
-    at.appendChild(b);
-  });
-  const b = document.createElement("button");
-  b.className = "atalho";
-  b.textContent = "+ Item avulso";
-  b.onclick = () => { extras.push({nome:"", valor:""}); renderExtras(); };
-  at.appendChild(b);
-}
-
-/* ============ formulário ============ */
-function preencherFilamentos(){
-  $("f-fil").innerHTML = S.filamentos
-    .map(f => `<option value="${f.id}">${f.nome} — ${brl(f.precoKg)}/kg</option>`).join("");
-}
-
-function limpar(){
-  editando = null;
-  ["f-nome","f-peso","f-th","f-tm","f-acab"].forEach(i => $(i).value = "");
-  $("f-cat").selectedIndex = 0;
-  $("f-margem").value = S.margemPadrao;
-  extras = [];
-  $("b-salvar").textContent = "Salvar peça";
-  renderExtras(); renderResultado();
-}
-
-$("b-salvar").onclick = () => {
-  const p = lerFormulario();
-  if (!p.nome){ toast("Dê um nome à peça"); $("f-nome").focus(); return; }
-  if (editando){
-    Object.assign(S.pecas.find(x => x.id === editando), p);
-    toast("Peça atualizada");
-  } else {
-    S.pecas.unshift(Object.assign({ id: uid(), criadoEm: Date.now() }, p));
-    toast("Peça salva");
-  }
-  salvar(); limpar(); renderLista();
-};
-
-$("b-limpar").onclick = limpar;
-
-["f-nome","f-peso","f-th","f-tm","f-acab","f-margem"].forEach(i => $(i).addEventListener("input", renderResultado));
-["f-cat","f-fil"].forEach(i => $(i).addEventListener("change", renderResultado));
-
-/* ============ lista de peças ============ */
-function renderLista(){
-  const q = $("f-busca").value.toLowerCase();
-  const itens = S.pecas.filter(p => !q || p.nome.toLowerCase().includes(q) || (p.categoria||"").toLowerCase().includes(q));
-  const lista = $("lista");
-
-  if (!itens.length){
-    lista.innerHTML = `<div class="vazio"><b>${S.pecas.length ? "Nada encontrado" : "Nenhuma peça salva ainda"}</b>
-      ${S.pecas.length ? "Tente outro termo de busca." : "Calcule uma peça na aba Calcular e salve para ela aparecer aqui."}</div>`;
+/* ==========================================================
+   Revelação suave no scroll
+   ========================================================== */
+(function () {
+  const alvos = document.querySelectorAll(".rev");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+    alvos.forEach(el => el.classList.add("on"));
     return;
   }
-
-  lista.innerHTML = "";
-  itens.forEach(p => {
-    const r = calcular(p);
-    const div = document.createElement("div");
-    div.className = "item";
-    div.innerHTML = `<div class="info">
-        <div class="nm">${p.nome}</div>
-        <div class="meta">${p.categoria} · ${num(p.pesoG)}g · ${r.horas.toFixed(1)}h · margem ${num(p.margem)}%</div>
-      </div>
-      <div class="nums">
-        <div class="custo">custo ${brl(r.custo)}</div>
-        <div class="venda">${brl(r.venda)}</div>
-      </div>
-      <button class="lixo" title="Excluir">&times;</button>`;
-
-    div.querySelector(".lixo").onclick = ev => {
-      ev.stopPropagation();
-      if (!confirm(`Excluir "${p.nome}"?`)) return;
-      S.pecas = S.pecas.filter(x => x.id !== p.id);
-      salvar(); renderLista(); toast("Peça excluída");
-    };
-
-    div.onclick = () => {
-      editando = p.id;
-      $("f-nome").value = p.nome;
-      $("f-cat").value = p.categoria;
-      $("f-fil").value = p.filamentoId;
-      $("f-peso").value = p.pesoG;
-      $("f-th").value = p.tempoH;
-      $("f-tm").value = p.tempoM;
-      $("f-acab").value = p.acabamentoMin;
-      $("f-margem").value = p.margem;
-      extras = (p.extras || []).map(e => ({...e}));
-      $("b-salvar").textContent = "Atualizar peça";
-      renderExtras(); renderResultado(); irPara("calc");
-      window.scrollTo({top:0, behavior:"smooth"});
-    };
-    lista.appendChild(div);
-  });
-}
-
-$("f-busca").addEventListener("input", renderLista);
-
-$("b-csv").onclick = () => {
-  if (!S.pecas.length){ toast("Nenhuma peça para exportar"); return; }
-  const cab = ["Nome","Linha","Peso (g)","Tempo (h)","Filamento (R$)","Energia (R$)",
-               "Avulsos (R$)","Acabamento (R$)","Falhas (R$)","Preço de custo (R$)",
-               "Margem (%)","Preço de venda (R$)","Lucro (R$)"];
-  const linhas = S.pecas.map(p => {
-    const r = calcular(p);
-    const n = v => v.toFixed(2).replace(".", ",");
-    return [p.nome, p.categoria, num(p.pesoG), n(r.horas), n(r.filamento), n(r.energia),
-            n(r.avulsos), n(r.acabamento), n(r.perda), n(r.custo),
-            num(p.margem), n(r.venda), n(r.lucro)];
-  });
-  const csv = "\uFEFF" + [cab, ...linhas].map(l => l.join(";")).join("\r\n");
-  baixar(new Blob([csv], {type:"text/csv;charset=utf-8"}), "pecas-nome-studio.csv");
-  toast("CSV exportado");
-};
-
-function baixar(blob, nome){
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = nome;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-}
-
-/* ============ ajustes ============ */
-function campoLinha(cols, valores, onChange, onRemove){
-  const div = document.createElement("div");
-  div.className = "extra";
-  div.style.gridTemplateColumns = cols;
-  valores.forEach(v => {
-    const i = document.createElement("input");
-    i.type = "text";
-    if (v.decimal) i.inputMode = "decimal";
-    i.value = v.valor;
-    i.placeholder = v.dica || "";
-    i.oninput = () => onChange(v.chave, i.value);
-    div.appendChild(i);
-  });
-  const b = document.createElement("button");
-  b.className = "lixo"; b.innerHTML = "&times;"; b.title = "Remover";
-  b.onclick = onRemove;
-  div.appendChild(b);
-  return div;
-}
-
-function renderAjustes(){
-  $("a-pot").value = S.potencia;
-  $("a-tar").value = S.tarifa;
-  $("a-mo").value = S.maoObra;
-  $("a-falha").value = S.falha;
-  $("a-margem").value = S.margemPadrao;
-
-  const fb = $("filamentos"); fb.innerHTML = "";
-  S.filamentos.forEach((f, i) => fb.appendChild(campoLinha(
-    "1fr 110px 38px",
-    [{chave:"nome", valor:f.nome, dica:"Nome"}, {chave:"precoKg", valor:f.precoKg, dica:"R$/kg", decimal:true}],
-    (c, v) => { f[c] = c === "precoKg" ? num(v) : v; salvar(); preencherFilamentos(); renderResultado(); },
-    () => { if (S.filamentos.length < 2){ toast("Mantenha ao menos um filamento"); return; }
-            S.filamentos.splice(i,1); salvar(); renderAjustes(); preencherFilamentos(); renderResultado(); }
-  )));
-
-  const cb = $("canais"); cb.innerHTML = "";
-  S.canais.forEach((c, i) => cb.appendChild(campoLinha(
-    "1fr 74px 74px 38px",
-    [{chave:"nome", valor:c.nome, dica:"Canal"},
-     {chave:"pct", valor:c.pct, dica:"% taxa", decimal:true},
-     {chave:"fixa", valor:c.fixa, dica:"R$ fixo", decimal:true}],
-    (ch, v) => { c[ch] = ch === "nome" ? v : num(v); salvar(); renderResultado(); },
-    () => { S.canais.splice(i,1); salvar(); renderAjustes(); renderResultado(); }
-  )));
-
-  const pb = $("presets"); pb.innerHTML = "";
-  S.presets.forEach((p, i) => pb.appendChild(campoLinha(
-    "1fr 110px 38px",
-    [{chave:"nome", valor:p.nome, dica:"Item"}, {chave:"valor", valor:p.valor, dica:"R$", decimal:true}],
-    (c, v) => { p[c] = c === "valor" ? num(v) : v; salvar(); renderExtras(); },
-    () => { S.presets.splice(i,1); salvar(); renderAjustes(); renderExtras(); }
-  )));
-}
-
-[["a-pot","potencia"],["a-tar","tarifa"],["a-mo","maoObra"],["a-falha","falha"],["a-margem","margemPadrao"]]
-  .forEach(([id, chave]) => $(id).addEventListener("input", e => {
-    S[chave] = num(e.target.value); salvar(); renderResultado();
-  }));
-
-$("b-add-fil").onclick   = () => { S.filamentos.push({id:uid(), nome:"Novo filamento", precoKg:80}); salvar(); renderAjustes(); preencherFilamentos(); };
-$("b-add-canal").onclick = () => { S.canais.push({id:uid(), nome:"Novo canal", pct:0, fixa:0}); salvar(); renderAjustes(); renderResultado(); };
-$("b-add-preset").onclick= () => { S.presets.push({nome:"Novo item", valor:0}); salvar(); renderAjustes(); renderExtras(); };
-
-$("b-backup").onclick = () => {
-  const d = new Date().toISOString().slice(0,10);
-  baixar(new Blob([JSON.stringify(S, null, 2)], {type:"application/json"}), `backup-custo-nome-${d}.json`);
-  toast("Backup salvo");
-};
-
-$("b-restaurar").onclick = () => $("f-arquivo").click();
-$("f-arquivo").onchange = ev => {
-  const arq = ev.target.files[0];
-  if (!arq) return;
-  const fr = new FileReader();
-  fr.onload = () => {
-    try {
-      const d = JSON.parse(fr.result);
-      if (!d || !Array.isArray(d.pecas)) throw new Error("formato");
-      if (!confirm("Isso substitui tudo que está salvo aqui. Continuar?")) return;
-      S = d;
-      for (const k in PADRAO) if (!(k in S)) S[k] = JSON.parse(JSON.stringify(PADRAO[k]));
-      salvar(); iniciar(); toast("Backup restaurado");
-    } catch(e){ toast("Arquivo não reconhecido"); }
-  };
-  fr.readAsText(arq);
-  ev.target.value = "";
-};
-
-$("b-zerar").onclick = () => {
-  if (!confirm("Apagar todas as peças e voltar os ajustes ao padrão?")) return;
-  if (!confirm("Tem certeza? Isso não tem volta.")) return;
-  S = JSON.parse(JSON.stringify(PADRAO));
-  salvar(); iniciar(); toast("Tudo apagado");
-};
-
-/* ============ abas ============ */
-function irPara(aba){
-  document.querySelectorAll(".abas button").forEach(b =>
-    b.setAttribute("aria-selected", String(b.dataset.aba === aba)));
-  ["calc","pecas","ajus"].forEach(a => $("p-" + a).hidden = (a !== aba));
-  if (aba === "pecas") renderLista();
-  if (aba === "ajus")  renderAjustes();
-}
-document.querySelectorAll(".abas button").forEach(b => b.onclick = () => irPara(b.dataset.aba));
-
-/* ============ início ============ */
-function iniciar(){
-  preencherFilamentos();
-  limpar();
-  renderLista();
-  renderAjustes();
-  if (!Store.persistente) toast("Este navegador não guarda dados — use backup");
-}
-iniciar();
-
-if ("serviceWorker" in navigator){
-  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
-}
+  const obs = new IntersectionObserver((ents) => {
+    ents.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add("on"), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+  alvos.forEach(el => obs.observe(el));
+})();
 </script>
+
 </body>
 </html>
