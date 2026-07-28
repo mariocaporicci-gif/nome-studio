@@ -624,7 +624,7 @@ a:focus-visible,button:focus-visible{
     <div class="lb-img"><img id="lb-img" src="" alt=""></div>
     <div class="lb-barra">
       <div class="lb-tit" id="lb-tit"></div>
-      <a class="lb-zap js-zap" href="#">
+      <a class="lb-zap" href="#">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
         Quero esta
       </a>
@@ -786,11 +786,15 @@ set(".js-email", CONFIG.email ? "mailto:" + CONFIG.email : "", false);
   const lbImg = document.getElementById("lb-img");
   const lbTit = document.getElementById("lb-tit");
   const lbThumbs = document.getElementById("lb-thumbs");
+  const lbZap = lb.querySelector(".lb-zap");
   let atual = null, indice = 1;
 
   function abrir(m){
     atual = m;
     lbTit.innerHTML = `NOM<i>Ê</i> ${m.id}<span>25 cm · kit LED Bambu 001</span>`;
+    // link do WhatsApp já com a peça escolhida no texto
+    const msg = `Olá! Tenho interesse na Luminária NOMÊ ${m.id}. Ela está disponível?`;
+    lbZap.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg);
     lbThumbs.innerHTML = "";
     for (let n = 1; n <= m.fotos; n++){
       const t = document.createElement("button");
