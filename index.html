@@ -508,11 +508,11 @@ a:focus-visible,button:focus-visible{
         </div>
         <div class="card-corpo">
           <h3>Luminárias <i>NOMÊ</i></h3>
-          <p>Nove modelos autorais, cada um com um desenho próprio — da torção lisa às pétalas em espiral. A luz atravessa as ranhuras e vira o desenho da peça.</p>
+          <p>Treze modelos autorais, cada um com um desenho próprio — da torção lisa às pétalas em espiral. A luz atravessa as ranhuras e vira o desenho da peça.</p>
           <div class="ficha">
             <div><span>Altura</span><span>25 cm</span></div>
             <div><span>Base</span><span>Kit LED de baixo consumo</span></div>
-            <div><span>Modelos</span><span>9 formas</span></div>
+            <div><span>Modelos</span><span>13 formas</span></div>
           </div>
           <a class="card-link" href="#luminarias">Ver os modelos <span>→</span></a>
         </div>
@@ -599,8 +599,8 @@ a:focus-visible,button:focus-visible{
   <div class="wrap">
     <div class="cab rev">
       <p class="eyebrow">Luminárias NOMÊ</p>
-      <h2>Nove desenhos, uma luz só sua</h2>
-      <p class="lead">Todas com 25 cm de altura e kit LED de baixo consumo. Toque em qualquer uma para ver de perto. Escolheu? Chame no WhatsApp que a gente imprime a sua.</p>
+      <h2>Uma luz só sua</h2>
+      <p class="lead">Treze desenhos autorais, todas com 25 cm de altura e kit LED de baixo consumo. Toque em qualquer uma para ver de perto. Escolheu? Chame no WhatsApp que a gente imprime a sua.</p>
     </div>
 
     <div class="grade rev" id="grade-lum"></div>
@@ -744,17 +744,21 @@ set(".js-email", CONFIG.email ? "mailto:" + CONFIG.email : "", false);
    VITRINE DE LUMINÁRIAS + lightbox com galeria
    ========================================================== */
 (function () {
-  // modelo: id, nome, quantas fotos tem (principal + galeria)
+  // modelo: id, fotos (qtd), obs (texto extra opcional no lightbox), alto (proporção retrato)
   const MODELOS = [
-    { id:"02", nome:"NOMÊ 02", fotos:2 },
-    { id:"03", nome:"NOMÊ 03", fotos:3 },
-    { id:"04", nome:"NOMÊ 04", fotos:2 },
-    { id:"05", nome:"NOMÊ 05", fotos:5 },
-    { id:"06", nome:"NOMÊ 06", fotos:4 },
-    { id:"07", nome:"NOMÊ 07", fotos:3 },
-    { id:"08", nome:"NOMÊ 08", fotos:2 },
-    { id:"09", nome:"NOMÊ 09", fotos:3 },
-    { id:"10", nome:"NOMÊ 10", fotos:2 }
+    { id:"02", fotos:2 },
+    { id:"03", fotos:3 },
+    { id:"04", fotos:2 },
+    { id:"05", fotos:5 },
+    { id:"06", fotos:4 },
+    { id:"07", fotos:3 },
+    { id:"08", fotos:2 },
+    { id:"09", fotos:3 },
+    { id:"10", fotos:2 },
+    { id:"11", fotos:4, alto:true, obs:"base cor cobre" },
+    { id:"12", fotos:4, alto:true, obs:"luz de projeção · preto ou branco" },
+    { id:"13", fotos:5, alto:true, obs:"branco" },
+    { id:"14", fotos:4, alto:true, obs:"base preta ou clara" }
   ];
   const DIM = "25 cm · LED";
   const cam = i => "fotos/luminaria-" + i;
@@ -791,7 +795,8 @@ set(".js-email", CONFIG.email ? "mailto:" + CONFIG.email : "", false);
 
   function abrir(m){
     atual = m;
-    lbTit.innerHTML = `NOM<i>Ê</i> ${m.id}<span>25 cm · kit LED Bambu 001</span>`;
+    const detalhe = m.obs ? `25 cm · ${m.obs}` : "25 cm · kit LED Bambu 001";
+    lbTit.innerHTML = `NOM<i>Ê</i> ${m.id}<span>${detalhe}</span>`;
     // link do WhatsApp já com a peça escolhida no texto
     const msg = `Olá! Tenho interesse na Luminária NOMÊ ${m.id}. Ela está disponível?`;
     lbZap.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg);
