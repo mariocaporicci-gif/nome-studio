@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NOMÊ STUDIO — Impressão 3D e peças personalizadas | Bento Gonçalves, RS</title>
-<meta name="description" content="Luminárias, vasos, chaveiros e itens pet impressos em 3D e personalizados com nome ou logo. Estúdio próprio em Bento Gonçalves, RS. Nota fiscal emitida.">
+<meta name="description" content="Luminárias, vasos, chaveiros e itens pet impressos em 3D e personalizados com nome ou logo. Estúdio próprio em Bento Gonçalves, RS.">
 <meta name="theme-color" content="#FBF8F3">
 <link rel="canonical" href="https://nomestudio.com.br/">
 
@@ -260,7 +260,7 @@ p{margin:0}
 
 /* ============================ FAIXA DE GARANTIAS ============================ */
 .faixa{border-top:1px solid var(--areia-2);border-bottom:1px solid var(--areia-2);background:var(--areia-3)}
-.faixa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--areia-2)}
+.faixa-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--areia-2)}
 .faixa-item{background:var(--areia-3);padding:30px 26px}
 .faixa-item .rot{
   font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
@@ -383,8 +383,13 @@ p{margin:0}
 /* ============================ BOTÃO FLUTUANTE ============================ */
 .flutua{
   position:fixed;right:20px;bottom:20px;z-index:60;
-  box-shadow:0 8px 26px rgba(43,38,34,.24);
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:0;background:none;border:none;
+  filter:drop-shadow(0 6px 14px rgba(43,38,34,.28));
+  transition:transform .2s ease;
 }
+.flutua:hover{transform:translateY(-2px) scale(1.05)}
+.flutua svg{width:54px;height:54px}
 
 /* ============================ REVELAÇÃO NO SCROLL ============================ */
 .rev{opacity:0;transform:translateY(16px)}
@@ -436,7 +441,7 @@ a:focus-visible,button:focus-visible{
       <a href="#sob-medida">Sob medida</a>
       <a href="#contato">Contato</a>
     </nav>
-    <a class="btn btn-zap btn-mini js-zap" href="#">Falar no WhatsApp</a>
+    <a class="btn btn-zap btn-mini js-zap" href="#">Chama no WhatsApp</a>
   </div>
 </header>
 
@@ -449,8 +454,8 @@ a:focus-visible,button:focus-visible{
       <p class="lead">Desenhamos e imprimimos luminárias, vasos, chaveiros e itens pet aqui no estúdio. Você leva do jeito que está — ou com o nome de quem vai ganhar gravado em relevo.</p>
       <div class="hero-ctas">
         <a class="btn btn-zap js-zap" href="#">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
-          Falar no WhatsApp
+          <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+          Chama no WhatsApp
         </a>
         <a class="btn btn-ghost" href="#linhas">Ver as linhas</a>
       </div>
@@ -472,10 +477,6 @@ a:focus-visible,button:focus-visible{
       <div class="faixa-item">
         <span class="rot">Feito aqui</span>
         <p>Modelagem, impressão e acabamento no nosso estúdio, sem intermediário.</p>
-      </div>
-      <div class="faixa-item">
-        <span class="rot">Com nota fiscal</span>
-        <p>Emitida por MAC ADM LTDA — atende pedido corporativo e compra de empresa.</p>
       </div>
       <div class="faixa-item">
         <span class="rot">Personalizável</span>
@@ -654,7 +655,7 @@ a:focus-visible,button:focus-visible{
     <div class="vitrine-rodape rev">
       <p><b>Não achou o desenho que queria?</b> A gente também imprime a partir de um modelo que você mandar, ou adapta uma dessas na cor da sua casa.</p>
       <a class="btn btn-zap js-zap" href="#">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
         Encomendar a minha
       </a>
     </div>
@@ -671,7 +672,7 @@ a:focus-visible,button:focus-visible{
     <div class="lb-barra">
       <div class="lb-tit" id="lb-tit"></div>
       <a class="lb-zap" href="#">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
         Quero esta
       </a>
     </div>
@@ -683,9 +684,9 @@ a:focus-visible,button:focus-visible{
     <div class="rev">
       <p class="eyebrow">Sob medida</p>
       <h2>Sua marca virando peça física</h2>
-      <p class="lead">Mande o logo e a quantidade. A gente transforma o arquivo em modelo 3D, imprime uma amostra pra você aprovar e só depois produz o lote. Nota fiscal emitida por MAC ADM LTDA.</p>
+      <p class="lead">Mande o logo e a quantidade. A gente transforma o arquivo em modelo 3D, imprime uma amostra pra você aprovar e só depois produz o lote.</p>
       <a class="btn btn-zap js-zap" href="#">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
         Enviar meu logo
       </a>
     </div>
@@ -693,7 +694,7 @@ a:focus-visible,button:focus-visible{
       <li><b>Você manda o logo</b> em qualquer formato — a gente vetoriza se precisar.</li>
       <li><b>Recebe o orçamento</b> com preço por unidade nas faixas de quantidade.</li>
       <li><b>Aprova uma amostra impressa</b> antes de o lote inteiro entrar na fila.</li>
-      <li><b>Produção e entrega</b> com prazo combinado e nota fiscal junto.</li>
+      <li><b>Produção e entrega</b> com prazo combinado.</li>
     </ol>
   </div>
 </section>
@@ -706,8 +707,8 @@ a:focus-visible,button:focus-visible{
     <p class="lead">Uma peça pronta, um presente com nome ou um lote pra empresa — a gente responde no WhatsApp no mesmo dia.</p>
     <div class="contato-ctas">
       <a class="btn btn-zap js-zap" href="#">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
-        Falar no WhatsApp
+        <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
+        Chama no WhatsApp
       </a>
       <a class="btn btn-ghost js-insta" href="#" target="_blank" rel="noopener">Ver no Instagram</a>
     </div>
@@ -752,9 +753,8 @@ a:focus-visible,button:focus-visible{
   </div>
 </footer>
 
-<a class="btn btn-zap flutua js-zap" href="#" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
-  WhatsApp
+<a class="flutua js-zap" href="#" aria-label="Chama no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
 </a>
 
 <script>
@@ -794,7 +794,6 @@ set(".js-email", CONFIG.email ? "mailto:" + CONFIG.email : "", false);
   const MODELOS = [
     { id:"02", fotos:2 },
     { id:"03", fotos:3 },
-    { id:"04", fotos:2 },
     { id:"05", fotos:5 },
     { id:"06", fotos:4 },
     { id:"07", fotos:3 },
