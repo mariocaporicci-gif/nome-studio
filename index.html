@@ -17,6 +17,19 @@
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1449607253759813');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1449607253759813&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -517,6 +530,12 @@ const set = (sel, href, blank) => document.querySelectorAll(sel).forEach(a => {
 set(".js-zap", zap, true);
 set(".js-insta", CONFIG.instagram, true);
 set(".js-tiktok", CONFIG.tiktok, true);
+
+/* conversão: clique em qualquer botão de WhatsApp vira um Lead */
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="https://wa.me/"]');
+  if (a && typeof fbq === "function") fbq("track", "Lead");
+});
 
 /* ========= VITRINE DE BRINDES ========= */
 (function () {
