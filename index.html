@@ -30,6 +30,16 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1449607253759813&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel -->
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0243K18D7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0243K18D7K');
+</script>
+<!-- End Google tag -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -531,10 +541,12 @@ set(".js-zap", zap, true);
 set(".js-insta", CONFIG.instagram, true);
 set(".js-tiktok", CONFIG.tiktok, true);
 
-/* conversão: clique em qualquer botão de WhatsApp vira um Lead */
+/* conversão: clique em qualquer botão de WhatsApp conta pra Meta e Google */
 document.addEventListener("click", e => {
   const a = e.target.closest('a[href^="https://wa.me/"]');
-  if (a && typeof fbq === "function") fbq("track", "Lead");
+  if (!a) return;
+  if (typeof fbq === "function") fbq("track", "Lead");
+  if (typeof gtag === "function") gtag("event", "generate_lead", { method: "WhatsApp" });
 });
 
 /* ========= VITRINE DE BRINDES ========= */
