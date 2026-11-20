@@ -251,6 +251,21 @@ p{margin:0}
 /* ---------------- revelação ---------------- */
 .rev{opacity:0;transform:translateY(16px)}
 .rev.on{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+/* ---------- PREÇOS ---------- */
+.precos{background:var(--areia)}
+.preco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.preco{background:var(--papel);border:1px solid var(--areia-2);border-radius:var(--r);padding:26px 24px;display:flex;flex-direction:column;gap:6px;position:relative}
+.preco.dest{border:2px solid var(--terracota)}
+.preco .selo{position:absolute;top:-12px;left:24px;background:var(--terracota);color:#fff;font-size:12px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:100px}
+.preco .qtd{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.1em;color:var(--terracota);text-transform:uppercase}
+.preco .tot{font-size:38px;font-weight:700;line-height:1.1}
+.preco .un{color:var(--tinta-70);font-size:15px;margin-bottom:14px}
+.preco .btn{margin-top:auto;justify-content:center}
+.preco-sub{font-size:22px;font-weight:600;margin:40px 0 0}
+.preco-grid.dois{grid-template-columns:repeat(2,1fr);max-width:790px}
+.preco-info{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;color:var(--tinta-70);font-size:15px}
+.preco-info b{color:var(--tinta);font-weight:600}
+@media (max-width:820px){.preco-grid,.preco-grid.dois{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.rev{opacity:1;transform:none}html{scroll-behavior:auto}}
 a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outline-offset:3px;border-radius:4px}
 
@@ -287,11 +302,12 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
     </a>
     <nav class="nav">
       <a href="#brindes">Brindes</a>
+      <a href="#precos">Preços</a>
       <a href="#simular">Simular</a>
       <a href="#como">Como funciona</a>
       <a href="#contato">Contato</a>
     </nav>
-    <a class="btn btn-zap btn-mini js-zap" href="#">Pedir orçamento</a>
+    <a class="btn btn-zap btn-mini js-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">Pedir orçamento</a>
   </div>
 </header>
 
@@ -304,7 +320,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
       <p class="lead">Chaveiros, suportes, itens de mesa e troféus personalizados com o seu logo em relevo. Para presentear colaboradores e parceiros com algo feito sob medida — não mais um brinde genérico.</p>
       <div class="selo-fim">🎄 <span><b>Fim de ano chegando</b> — encomende agora e garanta o prazo de entrega.</span></div>
       <div class="hero-ctas">
-        <a class="btn btn-zap js-zap" href="#">
+        <a class="btn btn-zap js-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
           Pedir orçamento
         </a>
@@ -344,7 +360,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
 
     <div class="vitrine-nota rev">
       <p><b>Os exemplos mostram a marca NOMÊ.</b> Na sua encomenda, cada peça leva o logo e as cores da sua empresa — e dá pra criar um modelo exclusivo também.</p>
-      <a class="btn btn-zap js-zap" href="#">
+      <a class="btn btn-zap js-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
         Pedir com a minha marca
       </a>
@@ -361,7 +377,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
     <div class="lb-img"><img src="" alt=""></div>
     <div class="lb-barra">
       <div class="lb-tit"></div>
-      <a class="lb-zap" href="#">
+      <a class="lb-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
         Pedir orçamento
       </a>
@@ -388,7 +404,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
           </label>
         </div>
 
-        <a class="btn btn-zap js-zap-arte" href="#">
+        <a class="btn btn-zap js-zap-arte" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
           Pedir orçamento com essa arte
         </a>
@@ -405,6 +421,61 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
         </div>
         <span class="palco-cap">prévia ilustrativa</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PREÇOS ===================== -->
+<section class="sec precos" id="precos">
+  <div class="wrap">
+    <div class="cab rev">
+      <p class="eyebrow">Preços</p>
+      <h2>Preço fechado, com a sua marca</h2>
+      <p class="lead">Logo em relevo e nas cores da empresa, com nota fiscal inclusa.</p>
+    </div>
+    <h3 class="preco-sub rev">Chaveiro com a logo</h3>
+    <div class="preco-grid rev">
+      <div class="preco">
+        <span class="qtd">50 unidades</span>
+        <span class="tot">R$ 275,00</span>
+        <span class="un">R$ 5,50 por chaveiro</span>
+        <a class="btn btn-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%2050%20chaveiros%20com%20a%20logo%20da%20minha%20empresa." target="_blank" rel="noopener">Pedir 50 chaveiros</a>
+      </div>
+      <div class="preco dest"><span class="selo">Mais pedido</span>
+        <span class="qtd">100 unidades</span>
+        <span class="tot">R$ 500,00</span>
+        <span class="un">R$ 5,00 por chaveiro</span>
+        <a class="btn btn-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20100%20chaveiros%20com%20a%20logo%20da%20minha%20empresa." target="_blank" rel="noopener">Pedir 100 chaveiros</a>
+      </div>
+      <div class="preco">
+        <span class="qtd">200 unidades</span>
+        <span class="tot">R$ 910,00</span>
+        <span class="un">R$ 4,55 por chaveiro</span>
+        <a class="btn btn-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20200%20chaveiros%20com%20a%20logo%20da%20minha%20empresa." target="_blank" rel="noopener">Pedir 200 chaveiros</a>
+      </div>
+    </div>
+
+    <h3 class="preco-sub rev">Troféu personalizado · 250 mm</h3>
+    <div class="preco-grid dois rev">
+      <div class="preco">
+        <span class="qtd">1 a 9 unidades</span>
+        <span class="tot">R$ 69,90</span>
+        <span class="un">por troféu</span>
+        <a class="btn btn-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20trof%C3%A9u%20personalizado%20com%20a%20logo%20da%20minha%20empresa." target="_blank" rel="noopener">Pedir troféus</a>
+      </div>
+      <div class="preco">
+        <span class="qtd">10 a 20 unidades</span>
+        <span class="tot">R$ 64,90</span>
+        <span class="un">por troféu</span>
+        <a class="btn btn-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%2010%20ou%20mais%20trof%C3%A9us%20personalizados%20com%20a%20logo%20da%20minha%20empresa." target="_blank" rel="noopener">Pedir 10 ou mais</a>
+      </div>
+    </div>
+    <div class="preco-info rev">
+      <span><b>Chaveiros:</b> pedido mínimo de 50 unidades</span>
+      <span><b>Prazo:</b> 7 a 10 dias úteis após aprovar a amostra, conforme a quantidade</span>
+      <span><b>Frete:</b> grátis em Bento Gonçalves e região · Correios para todo o Brasil</span>
+      <span><b>Pagamento:</b> Pix, boleto ou cartão de crédito (link)</span>
+      <span><b>Outros brindes e quantidades:</b> sob consulta</span>
     </div>
   </div>
 </section>
@@ -433,7 +504,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
       <h2>Fim de ano é agora.</h2>
       <p>Garanta os brindes de colaboradores e parceiros com prazo tranquilo. Chame no WhatsApp e a gente monta o seu orçamento hoje.</p>
     </div>
-    <a class="btn btn-claro js-zap rev" href="#">
+    <a class="btn btn-claro js-zap rev" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
       Montar meu orçamento
     </a>
@@ -447,11 +518,11 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
     <h2>Conta pra gente o que a sua empresa precisa</h2>
     <p class="lead">Quantidade, prazo, se já tem o logo pronto — a gente responde no WhatsApp no mesmo dia com o orçamento.</p>
     <div class="contato-ctas">
-      <a class="btn btn-zap js-zap" href="#">
+      <a class="btn btn-zap js-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
         Falar no WhatsApp
       </a>
-      <a class="btn btn-ghost js-insta" href="#" target="_blank" rel="noopener">Ver no Instagram</a>
+      <a class="btn btn-ghost js-insta" href="https://www.instagram.com/nomestudiobr/" target="_blank" rel="noopener">Ver no Instagram</a>
     </div>
   </div>
 </section>
@@ -475,9 +546,9 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
       <div>
         <h4>Contato</h4>
         <ul>
-          <li><a class="js-zap" href="#">WhatsApp</a></li>
-          <li><a class="js-insta" href="#" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a class="js-tiktok" href="#" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a class="js-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a class="js-insta" href="https://www.instagram.com/nomestudiobr/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a class="js-tiktok" href="https://www.tiktok.com/@nomestudiobr" target="_blank" rel="noopener">TikTok</a></li>
         </ul>
       </div>
     </div>
@@ -488,7 +559,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--terracota);outlin
   </div>
 </footer>
 
-<a class="btn btn-zap flutua js-zap" href="#" aria-label="Pedir orçamento no WhatsApp">
+<a class="btn btn-zap flutua js-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener" aria-label="Pedir orçamento no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.13c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.75-4.08-4.9-4.27-.14-.19-1.17-1.55-1.17-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.62-.07.17-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.38z"/></svg>
   Orçamento
 </a>

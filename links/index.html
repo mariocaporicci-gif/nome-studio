@@ -131,14 +131,22 @@
       <span class="mark">^</span>
       <h1 class="wordmark">NOMÊ</h1>
       <span class="studio">STUDIO</span>
-      <p class="tagline">Design autoral em iluminação, acessórios e presentes.</p>
+      <p class="tagline">Brindes corporativos com a marca da sua empresa. Bento Gonçalves · enviamos para todo o Brasil.</p>
     </header>
 
     <nav>
-      <a class="link primary" href="https://nomestudio.com.br" target="_blank" rel="noopener">
+      <a class="link primary js-orc" href="https://wa.me/5554981250170?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20brindes%20corporativos." target="_blank" rel="noopener">
         <span class="left">
-          <span class="name">Loja oficial</span>
-          <span class="plat">catálogo completo</span>
+          <span class="name">Orçamento de brindes corporativos</span>
+          <span class="plat">WhatsApp · resposta no mesmo dia</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link js-site" href="https://nomestudio.com.br/" target="_blank" rel="noopener">
+        <span class="left">
+          <span class="name">Ver brindes e preços</span>
+          <span class="plat">chaveiros a partir de R$ 4,55/un.</span>
         </span>
         <span class="arrow">→</span>
       </a>
@@ -146,7 +154,7 @@
       <a class="link" href="https://shopee.com.br/shop/299964216" target="_blank" rel="noopener">
         <span class="left">
           <span class="name">Shopee</span>
-          <span class="plat">loja completa</span>
+          <span class="plat">decoração e presentes</span>
         </span>
         <span class="arrow">→</span>
       </a>
@@ -154,15 +162,7 @@
       <a class="link" href="https://vt.tiktok.com/ZS9Stbv14wUe8-ALnaT/" target="_blank" rel="noopener">
         <span class="left">
           <span class="name">TikTok Shop</span>
-          <span class="plat">ver produtos</span>
-        </span>
-        <span class="arrow">→</span>
-      </a>
-
-      <a class="link" href="https://wa.me/5554981250170?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20presentes%20corporativos." target="_blank" rel="noopener">
-        <span class="left">
-          <span class="name">Presentes corporativos</span>
-          <span class="plat">orçamento sob medida</span>
+          <span class="plat">decoração e presentes</span>
         </span>
         <span class="arrow">→</span>
       </a>
@@ -170,10 +170,25 @@
 
     <div class="social">
       <a href="https://instagram.com/nomestudiobr" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://wa.me/5554981250170?text=Ol%C3%A1!%20Vim%20pelo%20link%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="js-zap" href="https://wa.me/5554981250170?text=Ol%C3%A1!%20Vim%20pelo%20link%20da%20NOM%C3%8A%20STUDIO." target="_blank" rel="noopener">WhatsApp</a>
     </div>
 
     <p class="foot">NOMÊ STUDIO</p>
   </main>
+  <script>
+  /* Origem do clique: use nomestudio.com.br/links?c=ig no Instagram e ?c=tt no TikTok */
+  (function(){
+    var c=(new URLSearchParams(location.search).get("c")||"").toLowerCase();
+    var origem={ig:"Instagram",tt:"TikTok",fb:"Facebook",li:"LinkedIn"}[c];
+    if(!origem) return;
+    var zap="https://wa.me/5554981250170?text=";
+    var orc=document.querySelector(".js-orc");
+    if(orc) orc.href=zap+encodeURIComponent("Olá! Vim pelo "+origem+" e quero um orçamento de brindes corporativos.");
+    var z=document.querySelector(".js-zap");
+    if(z) z.href=zap+encodeURIComponent("Olá! Vim pelo "+origem+" da NOMÊ STUDIO.");
+    var site=document.querySelector(".js-site");
+    if(site) site.href="https://nomestudio.com.br/?utm_source="+c+"&utm_medium=bio&utm_campaign=linkbio";
+  })();
+  </script>
 </body>
 </html>
